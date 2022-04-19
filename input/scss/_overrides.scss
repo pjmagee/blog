@@ -1,0 +1,9 @@
+#content > ul > li > a {
+  color: $primary;
+  @include transition-all;
+  &:focus,
+  &:hover {
+    color: $primary;
+    font-weight: bold;
+  }
+}  

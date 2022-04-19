@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "preview": {
+      "commandName": "Project",
+      "commandLineArgs": "preview"
+    }
+  }
+}

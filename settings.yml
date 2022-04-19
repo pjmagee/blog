@@ -1,0 +1,21 @@
+MinimumStatiqWebVersion-CleanBlog: "1.0.0-beta.36"
+SiteTitle: Patrick's Blog
+Author: Patrick Magee
+GitHub: pjmagee
+GA: UA-51533669-1
+Disqus: pjmagee-github-io
+Email: patrick.magee@outlook.com
+Twitter: PatrickMageez
+StackOverflow: users/935280/patrick-magee
+LinkedIn: patrick-magee-76216959
+PageTitle: |
+  =>
+  {
+    string siteTitle = Context.GetString("SiteTitle");
+    string title = GetString("Title");
+    return string.IsNullOrWhiteSpace(siteTitle) ? title : (string.IsNullOrWhiteSpace(title) ? siteTitle : $"{siteTitle} - {title}");
+  }
+Copyright: => $"Copyright © {DateTime.Now.Year}"
+PostSources: posts/**/*
+IsPost: => Outputs.FilterSources(Context.GetString("PostSources")).ContainsById(Document)
+Layout: /_layout.cshtml
