@@ -55,20 +55,28 @@ I've been to the following countries.
 
 ## Work
 
-#### Senior Software Engineer, [I.C.I.S](https://www.icis.com/) (2020 - Present)
+#### Principle Software Engineer, [I.C.I.S](https://www.icis.com/) [RELX](https://www.relx.com/) (2022 - Present)
 
-* ASP.NET Core, 
-* .NET 5, 
+* Data Transformation
+* .NET 5+, 
+* Docker, K8s
+* Confluent Kafka, PostgreSQL
+* GitLab CI, TeamCity, Terraform
+
+#### Senior Software Engineer, [I.C.I.S](https://www.icis.com/) [RELX](https://www.relx.com/) (2020 - Present)
+
+* Data Catalogue 
+* .NET 5+, 
 * Docker
-* PostgreSQL
 * GitLab CI, TeamCity, Terraform, K8s
 
-#### Senior/Lead Software Engineer, [XpertHR](https://www.xperthr.co.uk/) (2015 - 2020)
+#### Senior/Lead Software Engineer, [XpertHR](https://www.xperthr.co.uk/) [RELX](https://www.relx.com/) (2015 - 2020)
 
-* ASP.NET MVC,
+* ASP.NET MVC
 * ASP.NET Core
 * Angular, SCSS
 * Docker, K8s
+* TeamCity
 
 #### Software Developer, [Geeks](http://www.geeks.ltd.uk/) (2013 – 2015)
 
