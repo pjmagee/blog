@@ -16,14 +16,14 @@ Published: 18/04/2022
 * [CCleaner, PC Cleaning software](https://www.ccleaner.com/)
 * [Power Automate Desktop](https://powerautomate.microsoft.com/en-gb/)
 * [Nvidia Broadcast, AI Powered filters for Microphones and Speakers](https://www.nvidia.com/en-gb/geforce/broadcasting/broadcast-app/)
+* [Winget - Windows Package Manager (Official apt-get for Windows)](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 
 # Languages / Markup
 
 * [C#](https://github.com/dotnet/csharplang)
 * [Razor Templating](https://github.com/dotnet/razor-tooling)
-* [Powershell 6+ (also runs on unix)](https://github.com/PowerShell/Powershell)
+* [Powershell 6+ (also runs on Linux)](https://github.com/PowerShell/Powershell)
 * TypeScript
-* SCSS
 
 # DevOps
 
@@ -46,23 +46,20 @@ Published: 18/04/2022
 * [.NET Multi-Platform App UI](https://dotnet.microsoft.com/en-us/apps/maui)
 * [Windows Presentation Foundation](https://dotnet.microsoft.com/en-us/apps/desktop)
 * [xUnit](https://xunit.net/)
+* [YARP](https://microsoft.github.io/reverse-proxy/articles/getting-started.html)
 * [OpenXML SDK](https://github.com/OfficeDev/Open-Xml-Sdk)
 * [Microsoft.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Extensions)
 * [Node.js](https://nodejs.org/en/)
 * OrchardCMS Core (Headless CMS)
 * Squidex CMS (Headless CMS)
 
-# Dev Tools
-
-* [Windows Terminal](https://github.com/Microsoft/Terminal)
-* [Node version manager For Windows](https://github.com/coreybutler/nvm-windows)
-
 # IDEs / Text Editors
 
-* LinqPAD 7
+* LINQPad 7
+* Jetbrains Rider
 * Visual Studio Code
-* Powershell ISE
 * Visual Studio 2022
+* Powershell ISE
 
 # CI/CD
 
@@ -77,12 +74,11 @@ Published: 18/04/2022
 * MariaDb
 * MongoDb
 
-# Web Tools
+# Tools
 
+* [Windows Terminal](https://github.com/Microsoft/Terminal)
+* [Node version manager For Windows](https://github.com/coreybutler/nvm-windows)
 * Telerik Fiddler Everywhere
 * Postman
-
-# Photo Editing
-
 * [Paint.NET](https://github.com/paintdotnet)
 * GiMP
