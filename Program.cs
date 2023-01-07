@@ -1,8 +1,4 @@
-﻿using Statiq.App;
-using Statiq.Common;
-using Statiq.Web;
-
-await Bootstrapper
+﻿await Bootstrapper
     .Factory
     .CreateWeb(args)
     .DeployToGitHubPages(
