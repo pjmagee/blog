@@ -1,17 +1,18 @@
 Title: About me
-Lead: Senior .NET Developer
-Published: 18/04/2022
+Lead: Engineering Lead
+Published: 16/03/2024
 ---
 
-Here's a short summary about myself:
+My interests are programming, rowing, gaming and podcasts of varying topics.
 
-- I've been a full stack developer for over 8 years
-- Favourite ecosystem is .NET (APIs, Blazor, MVC, WPF)
-- I stopped smoking over 12 years ago and lost over 30Kg
-- Favourite drinks are IPA, Guinness, Coffee, Tea, Pepsi and Kinnie (Maltese soft drink)
-- Favourite food is Mediterranean / Middle Eastern influenced
+I enjoy [Bioware](http://www.bioware.com/), [Blizzard](https://www.blizzard.com/en-gb/) and [Ubisoft](https://www.ubisoft.com/en-gb/) games, such as Mass Effect, Heroes of the Storm, KOTOR series and the Assassin's Creed series.
 
-Recommended techincal books:
+Currently reading:
+
+* [The Mythical Man-month](https://www.amazon.co.uk/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959)
+* [Patterns of distributed systems](https://martinfowler.com/books/patterns-distributed.html)
+
+Past read books:
 
 * [Dependency Injection Principles Practices and Patterns](https://www.manning.com/books/dependency-injection-principles-practices-patterns)
 * [The Art of Unit Testing](https://www.manning.com/books/the-art-of-unit-testing-second-edition)
@@ -20,22 +21,6 @@ Recommended techincal books:
 * [Forces of Nature, Brian Cox](https://www.amazon.co.uk/Forces-Nature-Professor-Brian-Cox/dp/0008210039/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=)
 * [Cosmos Queries, Neil Degreass Tyson](https://www.amazon.co.uk/Cosmic-Queries-StarTalks-Guide-Where/dp/1426221770)
 
-My interests are programming, music, rowing, gaming and many podcasts!
-
-I enjoy [Bioware](http://www.bioware.com/), [Blizzard](https://www.blizzard.com/en-gb/) and [Ubisoft](https://www.ubisoft.com/en-gb/) games the most, such as the Mass Effect series, Heroes of the Storm, Knights of the Old Republic and the Assassin's Creed series.
-
-Visited countries:
-
-* Wales
-* Sweden
-* Denmark
-* Germany
-* France
-* Turkey
-* Malta
-* Tenerife
-* Menorca
-* USA (Atlanta, Georgia)
 
 ## Events
 
@@ -44,9 +29,14 @@ Visited countries:
 * [EGX](https://www.egx.net/egx), 2019 **[Cancelled]**
 * [Twitchcon Europe](https://europe.twitchcon.com/en/) 2019 **[Cancelled]**
 
-## Work
+## Career
 
-#### Principle Software Engineer, [I.C.I.S](https://www.icis.com/) [RELX](https://www.relx.com/) (2022 - Present)
+#### Engineering Lead, [I.C.I.S](https://www.icis.com/) [RELX](https://www.relx.com/) (2022 - Present)
+
+* Design and facilitate the delivery of Product data via APIs using .NET, OpenAPI, APIGEE, Kafka & Snowflake
+* .NET6+, Docker, K8s, GitLab, GitHub, Terraform
+
+#### Principal Software Engineer, [I.C.I.S](https://www.icis.com/) [RELX](https://www.relx.com/) (2021 - 2022)
 
 * Supporting the data transformation project with Apache Kafka
 * Working with stakeholders and technology to create roadmaps and technical decisions
@@ -56,7 +46,7 @@ Visited countries:
 * R&D and POCs for latest technologies, frameworks and trends within the industry to ensure the business stays current within technology
 * .NET6, Docker, K8s, PostgreSQL, GitLab CI, TeamCity, Terraform
 
-#### Senior Software Engineer, [I.C.I.S](https://www.icis.com/) [RELX](https://www.relx.com/) (2020 - Present)
+#### Senior Software Engineer, [I.C.I.S](https://www.icis.com/) [RELX](https://www.relx.com/) (2020 - 2021)
 
 * Data Catalogue integration & reference Data management
 * .NET CMS Management for reference data used within the business
@@ -78,7 +68,7 @@ Visited countries:
 * Use of M# DSL for code generation
 * .NET Framework & .NET Core MVC, ASP.NET WebForms, .NET Framework, ADO.NET, TPL, jQuery, LESS
 
-#### Junior Analyst Programmer, [Travel Network Group](http://www.thetravelnetworkgroup.co.uk/) (2011 – 2012)
+#### Analyst Programmer, [Travel Network Group](http://www.thetravelnetworkgroup.co.uk/) (2011 – 2012)
 
 * Policy / Insurance Generation for TTNG Travel Members
 * API Integration with GDS Providers for packaging various products together such as Cruises & Hotels.
