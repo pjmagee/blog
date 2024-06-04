@@ -1,12 +1,10 @@
-Title: Bookmarks
+Title: Recommended
 Published: 18/04/2022
 ---
 
-Various links I'd recommend you check out.
+Various resources that are recommended for developers to follow.
 
-## Tech Channels & Sites
-
-### Influencers and Industry Professionals
+### Industry Professionals and Content Creators
 
 * [Scott Hanselman's blog](https://www.hanselman.com/)  
 * [Jeff Atwood's blog](https://blog.codinghorror.com/)  
@@ -29,7 +27,7 @@ Various links I'd recommend you check out.
 * [JetBrains TV](https://www.youtube.com/@JetBrainsTV)
 * [NDC Conferences](https://www.youtube.com/@NDC)
 
-### Tech Blogs
+### Blogs
 
 * [The .NET foundation blog](https://dotnetfoundation.org/Blog)  
 * [The ASP.NET Community standup](https://dotnet.microsoft.com/en-us/live)  
@@ -45,3 +43,13 @@ Various links I'd recommend you check out.
 * [r/csharp](https://www.reddit.com/r/csharp/)
 * [r/dotnet](https://www.reddit.com/r/dotnet/)
 * [r/ProgrammerHumor](https://www.reddit.com/r/ProgrammerHumor/)
+
+## Discord Servers
+
+* [Microsoft Orleans](https://discord.gg/wFavbXE44R)
+* [CSharp](https://discord.gg/csharp)
+* [Gophers](https://discord.gg/golang)
+* [DAPR](https://discord.gg/dapr-778680217417809931)
+* [Jetbrains Academy](https://discord.gg/Yq5Uwjvp)
+* [Dagger](https://discord.gg/dagger-io)
+* [OpenAI](https://discord.gg/openai)

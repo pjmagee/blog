@@ -3,14 +3,13 @@ Lead: Engineering Lead
 Published: 16/03/2024
 ---
 
-My interests are programming, rowing, gaming and podcasts of varying topics.
-
 I enjoy [Bioware](http://www.bioware.com/), [Blizzard](https://www.blizzard.com/en-gb/) and [Ubisoft](https://www.ubisoft.com/en-gb/) games, such as Mass Effect, Heroes of the Storm, KOTOR series and the Assassin's Creed series.
 
 Currently reading:
 
 * [The Mythical Man-month](https://www.amazon.co.uk/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959)
 * [Patterns of distributed systems](https://martinfowler.com/books/patterns-distributed.html)
+* [100 Go Mistakes and how to avoid them](https://www.manning.com/books/100-go-mistakes-and-how-to-avoid-them)
 
 Past read books:
 
