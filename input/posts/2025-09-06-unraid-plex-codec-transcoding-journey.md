@@ -2,17 +2,16 @@ Title: My Codec & Transcoding Journey
 Lead: Building an efficient multi‑codec media workflow with Unraid, Plex, NVENC, Quick Sync, Unmanic & strategic library planning
 Published: 2025-09-06
 Tags:
-	- Unraid
-	- Plex
-	- AV1
-	- HEVC
-	- Transcoding
-	- NVENC
-	- Quick Sync
-	- Media Server
-	- Compression
-	- Storage
-
+  - Unraid
+  - Plex
+  - AV1
+  - HEVC
+  - Transcoding
+  - NVENC
+  - Quick Sync
+  - Media Server
+  - Compression
+  - Storage
 ---
 
 # Unraid, Plex, Codecs & Compression: A Practical Journey
@@ -183,9 +182,9 @@ In short: optimise for direct play, normalise selectively, and let measured savi
 
 ## References
 
-- AV1 – https://en.wikipedia.org/wiki/AV1
-- HEVC – https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding
-- AVC (H.264) – https://en.wikipedia.org/wiki/Advanced_Video_Coding
-- Dolby Vision – https://en.wikipedia.org/wiki/Dolby_Vision
-- HDR10 – https://en.wikipedia.org/wiki/HDR10
-- AAC – https://en.wikipedia.org/wiki/Advanced_Audio_Coding
+- AV1 – <https://en.wikipedia.org/wiki/AV1>
+- HEVC – <https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding>
+- AVC (H.264) – <https://en.wikipedia.org/wiki/Advanced_Video_Coding>
+- Dolby Vision – <https://en.wikipedia.org/wiki/Dolby_Vision>
+- HDR10 – <https://en.wikipedia.org/wiki/HDR10>
+- AAC – <https://en.wikipedia.org/wiki/Advanced_Audio_Coding>
