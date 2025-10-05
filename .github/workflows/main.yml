@@ -10,7 +10,7 @@ jobs:
         submodules: recursive
     - uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '7.0.x'
+        dotnet-version: '7.0.x'  
     - run: dotnet run -- deploy -l Debug
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
