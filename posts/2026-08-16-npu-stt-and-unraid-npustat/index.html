@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Patrick&#39;s Blog - Putting the Intel NPU to Work on Unraid</title><meta name="description" content="Always-on Whisper for a Discord wake gate on Arrow Lake’s NPU, and a dashboard tile because Unraid’s GPU panel cannot see the device at all."><meta name="author" content="Patrick Magee"><link rel="canonical" href="https://blog.ghp.magaoidh.pro/posts/2026-08-16-npu-stt-and-unraid-npustat"><link rel="alternate" type="application/rss+xml" title="Patrick's Blog" href="/feed.rss"><link rel="alternate" type="application/atom+xml" title="Patrick's Blog" href="/feed.atom"><meta name="application-name" content="Patrick's Blog"><meta property="og:title" content="Patrick's Blog - Putting the Intel NPU to Work on Unraid"><meta property="og:type" content="website"><meta property="og:url" content="https://blog.ghp.magaoidh.pro/posts/2026-08-16-npu-stt-and-unraid-npustat"><meta property="og:description" content="Always-on Whisper for a Discord wake gate on Arrow Lake’s NPU, and a dashboard tile because Unraid’s GPU panel cannot see the device at all."><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>:root{--bg:#0b0f14;--surface:#121820;--border:#1e2a36;--text:#c9d1d9;--text-muted:#7a8490;--text-faint:#4a5260;--white:#ecf0f3;--accent:#58a6ff;--accent-dim:#58a6ff1a;--container:920px}*,:before,:after{box-sizing:border-box}html{scroll-behavior:smooth;color-scheme:dark;-webkit-text-size-adjust:100%}body{color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;line-height:1.6}img,iframe,video{max-width:100%}img{border:0;border-radius:8px;height:auto}a{color:var(--accent);text-decoration:none;transition:color .2s,border-color .2s,background .2s}a:hover,a:focus{color:var(--white)}p{margin:0 0 1rem}p a{text-underline-offset:2px;text-decoration:underline}h1,h2,h3,h4,h5,h6{letter-spacing:-.02em;color:var(--white);margin-top:0;font-weight:600;line-height:1.25}blockquote{border-left:2px solid var(--border);color:var(--text-muted);margin:1.5rem 0;padding-left:1rem;font-style:italic}hr{border:0;border-top:1px solid var(--border);margin:0}::selection{color:var(--white);background:#58a6ff59}.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 1.5rem}.navbar{z-index:20;border-bottom:1px solid var(--border);backdrop-filter:blur(12px);background:#0b0f14eb;position:sticky;top:0}.navbar-inner{flex-wrap:wrap;justify-content:space-between;align-items:center;min-height:64px;display:flex}.navbar-brand{color:var(--white);letter-spacing:-.02em;font-weight:600}.navbar-brand:hover,.navbar-brand:focus{color:var(--accent)}.nav-toggle{letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;border-radius:8px;padding:.45rem .75rem;font-family:inherit;font-size:.78rem;font-weight:600}.nav-menu{margin:0;padding:0 0 1rem;list-style:none;display:none}.navbar.is-open .nav-menu{flex-basis:100%;display:block}.nav-menu a{color:var(--text);padding:.55rem 0;font-size:.88rem;font-weight:500;display:block}.nav-menu a:hover,.nav-menu a:focus,.nav-menu a[aria-current=page]{color:var(--white)}.masthead{border-bottom:1px solid var(--border);padding:3.5rem 0 2.5rem;position:relative;overflow:hidden}.masthead:before{content:"";pointer-events:none;background:radial-gradient(circle,#58a6ff14 0%,#0000 70%);width:600px;height:600px;position:absolute;top:-120px;left:50%;transform:translate(-50%)}.masthead.has-image{background-position:50%;background-size:cover}.masthead-overlay{display:none}.masthead-content{position:relative}.site-heading h1,.post-heading h1{word-break:break-word;margin:0;font-size:2.1rem;font-weight:600}.site-heading .subheading,.post-heading .subheading{color:var(--text-muted);margin:.6rem 0 0;font-size:1rem;font-weight:400;line-height:1.6;display:block}.post-heading .meta{color:var(--text-muted);margin-top:1rem;font-size:.88rem}.post-heading .tags{margin-top:.9rem}.split{gap:2.5rem;padding:2.5rem 0 3rem;display:grid}.split-main,.split-side{min-width:0}.split-side h5{text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:.9rem;font-size:.78rem;font-weight:600}.right-border{border-right:0}.post-preview{border-bottom:1px solid var(--border);margin-bottom:1.75rem;padding-bottom:1.75rem}.post-preview:last-of-type{border-bottom:0}.post-preview .post-title{margin:0;font-size:1.25rem}.post-preview .post-title a{color:var(--white)}.post-preview .post-title a:hover,.post-preview .post-title a:focus{color:var(--accent)}.post-preview .post-subtitle{color:var(--text);margin:.35rem 0 .45rem;font-size:.95rem;font-weight:400}.post-preview .post-meta{color:var(--text-muted);margin:0;font-size:.82rem}.year-heading{background:var(--surface);color:var(--white);border:1px solid var(--border);border-radius:8px;margin:1.75rem 0 1rem;padding:.45rem .8rem;font-size:.9rem}.archive{padding:2.5rem 0 3rem}.badge{color:var(--text-muted);background:var(--surface);border:1px solid var(--border);border-radius:6px;margin:0 .35rem .4rem 0;padding:.3rem .7rem;font-size:.78rem;font-weight:500;line-height:1.2;display:inline-block}.badge-dark,.badge:hover,.badge:focus{color:var(--white);background:var(--accent-dim);border-color:var(--accent)}.btn{border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;border-radius:8px;align-items:center;gap:.4rem;padding:.5rem 1.1rem;font-family:inherit;font-size:.88rem;font-weight:500;text-decoration:none;display:inline-flex}.btn:hover,.btn:focus{border-color:var(--accent);background:var(--accent-dim);color:var(--white)}.btn-sm{padding:.35rem .8rem;font-size:.8rem}.pager{justify-content:space-between;gap:1rem;margin-top:1.5rem;display:flex}.pager .spacer{flex:1}.prose{padding:2.5rem 0 1rem}.prose h1,.prose h2,.prose h3{margin:2rem 0 .8rem}.prose ul,.prose ol{padding-left:1.3rem}.prose li+li{margin-top:.3rem}.prose pre{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;font-size:.85rem;overflow:auto}.prose code{font-size:.85em}.prose :not(pre)>code{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.15em .35em}.prose .gist-embed{border:1px solid var(--border);background:var(--surface);border-radius:10px;width:100%;min-height:320px}.comments{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin:1rem 0 3rem;padding:1.25rem}.footer{padding:2.5rem 0 3rem}.footer .copyright,.footer .muted,.footer .disclaimer{color:var(--text-muted);font-size:.8rem}.footer .disclaimer{color:var(--text-faint);max-width:40rem;margin:0 auto 1.25rem;font-size:.75rem;line-height:1.6}.footer-links{margin:1rem 0 0;padding:0;list-style:none}.footer-links li{margin:0 .7rem .5rem;font-size:.85rem;display:inline-block}.footer-links a{color:var(--text)}.footer-links a:hover,.footer-links a:focus{color:var(--accent)}.generated-by{border-top:1px solid var(--border);color:var(--text-muted);margin-top:1.25rem;padding-top:1.25rem;font-size:.8rem}@media (width>=768px){.site-heading h1,.post-heading h1{font-size:2.6rem}.split{grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr);align-items:start}.right-border{border-right:1px solid var(--border);padding-right:2rem}}@media (width>=800px){.nav-toggle{display:none}.nav-menu{gap:.15rem;padding:0;display:flex}.nav-menu a{border-radius:8px;padding:.4rem .75rem}.nav-menu a:hover,.nav-menu a:focus{background:var(--accent-dim);color:var(--white)}}
+</style><script type="module" src="/_astro/page.D6Rx8f8Z.js"></script></head><body><nav class="navbar" id="mainNav"><div class="container navbar-inner"><a class="navbar-brand" href="/">Patrick&#39;s Blog</a><button class="nav-toggle" type="button" aria-controls="navbarResponsive" aria-expanded="false">Menu</button><ul class="nav-menu" id="navbarResponsive"><li><a href="https://magaoidh.pro" target="_blank" rel="noopener">Portfolio</a></li><li><a href="https://www.linkedin.com/in/patrickmageez/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="/about">About</a></li><li><a href="/posts">Posts</a></li><li><a href="/tags">Tags</a></li></ul></div></nav><script type="module">var e=document.getElementById(`mainNav`),t=e?.querySelector(`.nav-toggle`);t?.addEventListener(`click`,()=>{let n=e?.classList.toggle(`is-open`)??!1;t.setAttribute(`aria-expanded`,String(n))});</script><header class="masthead"><div class="masthead-overlay"></div><div class="container"><div class="masthead-content post-heading"><h1>Putting the Intel NPU to Work on Unraid</h1><h2 class="subheading">Always-on Whisper for a Discord wake gate on Arrow Lake’s NPU, and a dashboard tile because Unraid’s GPU panel cannot see the device at all.</h2><div class="meta">Published on Sunday, August 16, 2026</div><div class="tags"><a class="badge" href="/tags/unraid">Unraid</a><a class="badge" href="/tags/npu">NPU</a><a class="badge" href="/tags/openvino">OpenVINO</a><a class="badge" href="/tags/whisper">Whisper</a><a class="badge" href="/tags/openclaw">OpenClaw</a><a class="badge" href="/tags/voice">Voice</a></div></div></div></header><main class="container"><article class="prose"><p>The Core Ultra 9 285K in Tower has an NPU. For months it did nothing useful. Ollama and llama.cpp have no NPU backend. Unraid’s stock GPU tile reads <code>intel_gpu_top</code>, which only sees DRM graphics devices. An Intel NPU is a separate PCI function in the kernel <code>accel</code> class (<code>/dev/accel/accel0</code>). The silicon looked idle because nothing was looking at it, and nothing popular would run on it.</p>
+<p>Always-on speech-to-text turned out to be the job it is actually good at. That work now lives in two public pieces under <a href="https://github.com/pjmagee/unraid-apps">pjmagee/unraid-apps</a>:</p>
+<ul>
+<li><a href="https://github.com/pjmagee/unraid-apps/tree/main/containers/npu-stt"><code>npu-stt</code></a> — OpenAI-compatible Whisper on the NPU via OpenVINO GenAI</li>
+<li><a href="https://github.com/pjmagee/unraid-apps/tree/main/plugins/npustat"><code>npustat</code></a> — an Unraid dashboard tile that reads the driver’s sysfs</li>
+</ul>
+<p>This is how they get used on the fleet, not a second README.</p>
+<h2 id="two-stt-servers-on-purpose">Two STT servers on purpose</h2>
+<p>Chillbot sits muted in Discord voice channels all day and only consults when someone says its name. That gate has to transcribe <em>every</em> utterance locally, including the ones we throw away. A 3090 can do that easily. It should not have to.</p>
+<p>So Tower runs both:</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Port</th>
+<th>Hardware</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>npu-stt</strong></td>
+<td><code>:8101</code></td>
+<td>Arrow Lake NPU</td>
+<td>Always-on wake gate</td>
+</tr>
+<tr>
+<td><strong>speaches</strong></td>
+<td><code>:8100</code></td>
+<td>RTX 3090</td>
+<td>Bulk transcription (<code>local-stt</code> skill)</td>
+</tr>
+</tbody>
+</table>
+<p>The voice stack points the gate at the NPU:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>OPENCLAW_WHISPER_WAKE_ENABLED=1</span></span>
+<span class="line"><span>OPENCLAW_SPEACHES_URL=http://172.17.0.1:8101</span></span></code></pre>
+<p><code>npu-stt</code> speaks the same <code>POST /v1/audio/transcriptions</code> contract as speaches, so the OpenClaw wake-gate module does not care which box answered. The model id in env is ignored by npu-stt — it has its own baked OpenVINO IR (<code>distil-whisper-large-v3-int8</code>). Matching the wake name, aliases, and fail-closed policy still live in the plugin, not in the STT server. The server only transcribes.</p>
+<p>When someone actually wakes the bot, the <em>command</em> goes to xAI’s STT (better ears). The NPU’s transcript is kept as a timed fallback so a missing cloud event cannot leave the bot mute-and-confused. Between wakes, the 3090 is free for other work.</p>
+<h2 id="why-the-npu-if-it-is-not-faster">Why the NPU, if it is not faster</h2>
+<p>It is not faster. RAPL package-0, 9.5 s clip, same model, same machine:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Speed</th>
+<th>Power over idle</th>
+<th>Energy per clip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NPU</strong></td>
+<td>1420 ms (6.7× realtime)</td>
+<td><strong>+11.3 W</strong></td>
+<td>~16 J</td>
+</tr>
+<tr>
+<td><strong>CPU</strong></td>
+<td>1413 ms (6.7× realtime)</td>
+<td>+114 W</td>
+<td>~161 J</td>
+</tr>
+</tbody>
+</table>
+<p>Same words, same wall time, a tenth of the energy. A GPU faster-whisper pass is quicker still (~0.2–0.4 s). For a box that listens <em>all day</em>, the interesting number is watts, not milliseconds. The NPU is also the right size of silicon: <code>DEVICE_ARCHITECTURE = 3720</code>, Meteor-Lake-class, roughly 11–13 TOPS. It is not the 48-TOPS part in newer laptops, and it is not for LLMs. Keep Ollama on the 3090.</p>
+<p>Latency is also almost constant. Whisper pads to a 30 s window, so a 2 s “Chillbot” and a 9 s sentence both cost ~1.5 s. That is acceptable for a wake check. It would be the wrong backend if you were captioning a film.</p>
+<p>One behavioural difference is load-bearing and easy to miss: OpenVINO GenAI does <strong>not</strong> report per-segment <code>no_speech_prob</code>. faster-whisper does. Any hallucination filter that needed that field becomes a no-op against npu-stt. On Chillbot, wake-name matching carries the load alone. If ambient noise starts waking the bot, that is why — revert the gate URL to speaches on <code>:8100</code> and the filter works again.</p>
+<h2 id="the-evening-you-will-otherwise-lose">The evening you will otherwise lose</h2>
+<p>The image is <code>ghcr.io/pjmagee/npu-stt</code>, pinned to a sha on Tower so an unrelated <code>compose up</code> in the AI stack cannot silently swap the STT engine. It needs <code>/dev/accel/accel0</code>, Unraid 7.3’s <code>intel_vpu</code> driver, and firmware on disk. No privileged mode.</p>
+<p>None of that is enough if you omit:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>ZE_ENABLE_ALT_DRIVERS=/usr/lib/x86_64-linux-gnu/libze_intel_npu.so.1</span></span></code></pre>
+<p>The level-zero loader does not auto-discover the NPU driver. Without that env, <code>openvino.Core().available_devices</code> returns <code>['CPU']</code> — kernel bound, firmware present, device node passed through, Intel debs installed, NPU plugin sitting on disk. Everything looks correct. Nothing uses the NPU. There is no error to search for.</p>
+<p>With it: <code>['CPU', 'NPU'] → Intel(R) AI Boost</code>. The image bakes the variable in. The compose file still sets it explicitly so a future image cannot drop it quietly.</p>
+<p>First start downloads ~1.5 GB and compiles for the NPU (~70 s). Later starts still recompile; there is no persistent NPU kernel cache here. Healthcheck start period is 180 s for that reason. Read RAPL from the <strong>host</strong> if you want to reproduce the power table — <code>/sys/class/powercap</code> inside the container is a dead end even as root.</p>
+<h2 id="seeing-it-on-the-unraid-dashboard">Seeing it on the Unraid dashboard</h2>
+<p>Once the container is actually using the device, you still cannot see that in the stock UI. <code>gpustat</code> will never grow an NPU row: it is looking at the wrong subsystem.</p>
+<p><code>npustat</code> is a small Unraid plugin: a PHP endpoint and about twenty lines of JavaScript. No extra daemon. It reads:</p>
+<table>
+<thead>
+<tr>
+<th>sysfs</th>
+<th>Tile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npu_busy_time_us</code></td>
+<td>Load — busy delta over wall-clock delta between polls</td>
+</tr>
+<tr>
+<td><code>npu_current_frequency_mhz</code></td>
+<td>Frequency (0 MHz while runtime-suspended is normal)</td>
+</tr>
+<tr>
+<td><code>npu_memory_utilization</code></td>
+<td>Allocated memory — a resident model shows here even at 0% load</td>
+</tr>
+</tbody>
+</table>
+<p>Install from <strong>Plugins → Install Plugin</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>https://github.com/pjmagee/unraid-apps/releases/latest/download/npustat.plg</span></span></code></pre>
+<p>If the tile is missing, Dashboard → Content Manager (the eye). On a box with no <code>intel_vpu</code> device the tile hides itself instead of showing fake zeroes.</p>
+<p>Unraid runs from RAM, so <code>/usr/local/emhttp</code> is gone after reboot. Persistence is the <code>.plg</code> on flash re-extracting its payload tarball every boot. The payload URL is pinned to the version in that <code>.plg</code>, not <code>/latest/</code>, so an install always gets the tarball it was published with. <code>/latest/</code> is only the plugin’s self-update pointer.</p>
+<p>The first poll after boot reports 0% load. The previous sample lives in tmpfs. That is intentional.</p>
+<p>I use the tile as a sanity check that the wake gate is really on the NPU: a resident model in the memory row, and the load bar ticks when someone talks in the VC even if the name did not match. If load is flat while Chillbot is “listening”, the container has fallen back to CPU or is not receiving audio.</p>
+<h2 id="what-i-would-not-do">What I would not do</h2>
+<p>I would not put LLM inference on this NPU. I would not make npu-stt the only STT on the box — speaches on the 3090 is still the right tool when you want a file transcribed quickly and you <em>do</em> want <code>no_speech_prob</code>. I would not publish the image as <code>:latest</code> in production compose. And I would not assume Unraid’s GPU panel will ever cover this device; the kernel split is the reason the plugin exists.</p>
+<p>Containers, templates, and the <code>.plg</code> are all in <a href="https://github.com/pjmagee/unraid-apps">unraid-apps</a>. The OpenClaw side of the gate is in the <a href="/posts/2026-08-16-openclaw-plugins-from-the-fleet">previous post</a>.</p>
+</article><div class="comments"><div id="disqus_thread"></div><script>(function(){const url = "https://blog.ghp.magaoidh.pro/posts/2026-08-16-npu-stt-and-unraid-npustat";
+const identifier = "2026-08-16-npu-stt-and-unraid-npustat";
+const shortname = "pjmagee-github-io";
+
+    var disqus_config = function () {
+      this.page.url = url;
+      this.page.identifier = identifier;
+    };
+    (function () {
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://" + shortname + ".disqus.com/embed.js";
+      s.setAttribute("data-timestamp", String(+new Date()));
+      (d.head || d.body).appendChild(s);
+    })();
+  })();</script><noscript>Please enable JavaScript to view the<a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></main><footer class="footer"><div class="container"><p class="disclaimer">All views expressed here are my own and do not represent my employer. Comments on posts are powered by Disqus.</p><ul class="footer-links"><li><a href="https://magaoidh.pro">Portfolio</a></li><li><a href="/feed.rss">RSS</a></li><li><a href="/feed.atom">Atom</a></li><li><a href="https://www.linkedin.com/in/patrickmageez/">LinkedIn</a></li><li><a href="https://github.com/pjmagee">GitHub</a></li><li><a href="https://x.com/PatrickMagee">X</a></li></ul><div class="generated-by">© 2026 Patrick Magee</div></div></footer><script>(function(){const ga = "UA-51533669-1";
+const path = "/posts/2026-08-16-npu-stt-and-unraid-npustat";
+const title = "Patrick's Blog - Putting the Intel NPU to Work on Unraid";
+
+          (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            (i[r] =
+              i[r] ||
+              function () {
+                (i[r].q = i[r].q || []).push(arguments);
+              }),
+              (i[r].l = 1 * new Date());
+            (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+          })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+          ga("create", ga, "auto");
+          ga("send", "pageview", { page: path, title: title });
+        })();</script></body></html><script type="module">if(document.querySelector(`.imgur-embed-pub`)){let e=document.createElement(`script`);e.async=!0,e.src=`https://s.imgur.com/min/embed.js`,e.charset=`utf-8`,document.body.appendChild(e)}</script>

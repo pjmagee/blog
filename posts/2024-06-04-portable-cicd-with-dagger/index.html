@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Patrick&#39;s Blog - Portable CI/CD with Dagger</title><meta name="description" content="CI/CD Pipelines with Dagger, containerised pipelines"><meta name="author" content="Patrick Magee"><link rel="canonical" href="https://blog.ghp.magaoidh.pro/posts/2024-06-04-portable-cicd-with-dagger"><link rel="alternate" type="application/rss+xml" title="Patrick's Blog" href="/feed.rss"><link rel="alternate" type="application/atom+xml" title="Patrick's Blog" href="/feed.atom"><meta name="application-name" content="Patrick's Blog"><meta property="og:title" content="Patrick's Blog - Portable CI/CD with Dagger"><meta property="og:type" content="website"><meta property="og:url" content="https://blog.ghp.magaoidh.pro/posts/2024-06-04-portable-cicd-with-dagger"><meta property="og:description" content="CI/CD Pipelines with Dagger, containerised pipelines"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>:root{--bg:#0b0f14;--surface:#121820;--border:#1e2a36;--text:#c9d1d9;--text-muted:#7a8490;--text-faint:#4a5260;--white:#ecf0f3;--accent:#58a6ff;--accent-dim:#58a6ff1a;--container:920px}*,:before,:after{box-sizing:border-box}html{scroll-behavior:smooth;color-scheme:dark;-webkit-text-size-adjust:100%}body{color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;line-height:1.6}img,iframe,video{max-width:100%}img{border:0;border-radius:8px;height:auto}a{color:var(--accent);text-decoration:none;transition:color .2s,border-color .2s,background .2s}a:hover,a:focus{color:var(--white)}p{margin:0 0 1rem}p a{text-underline-offset:2px;text-decoration:underline}h1,h2,h3,h4,h5,h6{letter-spacing:-.02em;color:var(--white);margin-top:0;font-weight:600;line-height:1.25}blockquote{border-left:2px solid var(--border);color:var(--text-muted);margin:1.5rem 0;padding-left:1rem;font-style:italic}hr{border:0;border-top:1px solid var(--border);margin:0}::selection{color:var(--white);background:#58a6ff59}.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 1.5rem}.navbar{z-index:20;border-bottom:1px solid var(--border);backdrop-filter:blur(12px);background:#0b0f14eb;position:sticky;top:0}.navbar-inner{flex-wrap:wrap;justify-content:space-between;align-items:center;min-height:64px;display:flex}.navbar-brand{color:var(--white);letter-spacing:-.02em;font-weight:600}.navbar-brand:hover,.navbar-brand:focus{color:var(--accent)}.nav-toggle{letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;border-radius:8px;padding:.45rem .75rem;font-family:inherit;font-size:.78rem;font-weight:600}.nav-menu{margin:0;padding:0 0 1rem;list-style:none;display:none}.navbar.is-open .nav-menu{flex-basis:100%;display:block}.nav-menu a{color:var(--text);padding:.55rem 0;font-size:.88rem;font-weight:500;display:block}.nav-menu a:hover,.nav-menu a:focus,.nav-menu a[aria-current=page]{color:var(--white)}.masthead{border-bottom:1px solid var(--border);padding:3.5rem 0 2.5rem;position:relative;overflow:hidden}.masthead:before{content:"";pointer-events:none;background:radial-gradient(circle,#58a6ff14 0%,#0000 70%);width:600px;height:600px;position:absolute;top:-120px;left:50%;transform:translate(-50%)}.masthead.has-image{background-position:50%;background-size:cover}.masthead-overlay{display:none}.masthead-content{position:relative}.site-heading h1,.post-heading h1{word-break:break-word;margin:0;font-size:2.1rem;font-weight:600}.site-heading .subheading,.post-heading .subheading{color:var(--text-muted);margin:.6rem 0 0;font-size:1rem;font-weight:400;line-height:1.6;display:block}.post-heading .meta{color:var(--text-muted);margin-top:1rem;font-size:.88rem}.post-heading .tags{margin-top:.9rem}.split{gap:2.5rem;padding:2.5rem 0 3rem;display:grid}.split-main,.split-side{min-width:0}.split-side h5{text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:.9rem;font-size:.78rem;font-weight:600}.right-border{border-right:0}.post-preview{border-bottom:1px solid var(--border);margin-bottom:1.75rem;padding-bottom:1.75rem}.post-preview:last-of-type{border-bottom:0}.post-preview .post-title{margin:0;font-size:1.25rem}.post-preview .post-title a{color:var(--white)}.post-preview .post-title a:hover,.post-preview .post-title a:focus{color:var(--accent)}.post-preview .post-subtitle{color:var(--text);margin:.35rem 0 .45rem;font-size:.95rem;font-weight:400}.post-preview .post-meta{color:var(--text-muted);margin:0;font-size:.82rem}.year-heading{background:var(--surface);color:var(--white);border:1px solid var(--border);border-radius:8px;margin:1.75rem 0 1rem;padding:.45rem .8rem;font-size:.9rem}.archive{padding:2.5rem 0 3rem}.badge{color:var(--text-muted);background:var(--surface);border:1px solid var(--border);border-radius:6px;margin:0 .35rem .4rem 0;padding:.3rem .7rem;font-size:.78rem;font-weight:500;line-height:1.2;display:inline-block}.badge-dark,.badge:hover,.badge:focus{color:var(--white);background:var(--accent-dim);border-color:var(--accent)}.btn{border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;border-radius:8px;align-items:center;gap:.4rem;padding:.5rem 1.1rem;font-family:inherit;font-size:.88rem;font-weight:500;text-decoration:none;display:inline-flex}.btn:hover,.btn:focus{border-color:var(--accent);background:var(--accent-dim);color:var(--white)}.btn-sm{padding:.35rem .8rem;font-size:.8rem}.pager{justify-content:space-between;gap:1rem;margin-top:1.5rem;display:flex}.pager .spacer{flex:1}.prose{padding:2.5rem 0 1rem}.prose h1,.prose h2,.prose h3{margin:2rem 0 .8rem}.prose ul,.prose ol{padding-left:1.3rem}.prose li+li{margin-top:.3rem}.prose pre{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;font-size:.85rem;overflow:auto}.prose code{font-size:.85em}.prose :not(pre)>code{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.15em .35em}.prose .gist-embed{border:1px solid var(--border);background:var(--surface);border-radius:10px;width:100%;min-height:320px}.comments{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin:1rem 0 3rem;padding:1.25rem}.footer{padding:2.5rem 0 3rem}.footer .copyright,.footer .muted,.footer .disclaimer{color:var(--text-muted);font-size:.8rem}.footer .disclaimer{color:var(--text-faint);max-width:40rem;margin:0 auto 1.25rem;font-size:.75rem;line-height:1.6}.footer-links{margin:1rem 0 0;padding:0;list-style:none}.footer-links li{margin:0 .7rem .5rem;font-size:.85rem;display:inline-block}.footer-links a{color:var(--text)}.footer-links a:hover,.footer-links a:focus{color:var(--accent)}.generated-by{border-top:1px solid var(--border);color:var(--text-muted);margin-top:1.25rem;padding-top:1.25rem;font-size:.8rem}@media (width>=768px){.site-heading h1,.post-heading h1{font-size:2.6rem}.split{grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr);align-items:start}.right-border{border-right:1px solid var(--border);padding-right:2rem}}@media (width>=800px){.nav-toggle{display:none}.nav-menu{gap:.15rem;padding:0;display:flex}.nav-menu a{border-radius:8px;padding:.4rem .75rem}.nav-menu a:hover,.nav-menu a:focus{background:var(--accent-dim);color:var(--white)}}
+</style><script type="module" src="/_astro/page.D6Rx8f8Z.js"></script></head><body><nav class="navbar" id="mainNav"><div class="container navbar-inner"><a class="navbar-brand" href="/">Patrick&#39;s Blog</a><button class="nav-toggle" type="button" aria-controls="navbarResponsive" aria-expanded="false">Menu</button><ul class="nav-menu" id="navbarResponsive"><li><a href="https://magaoidh.pro" target="_blank" rel="noopener">Portfolio</a></li><li><a href="https://www.linkedin.com/in/patrickmageez/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="/about">About</a></li><li><a href="/posts">Posts</a></li><li><a href="/tags">Tags</a></li></ul></div></nav><script type="module">var e=document.getElementById(`mainNav`),t=e?.querySelector(`.nav-toggle`);t?.addEventListener(`click`,()=>{let n=e?.classList.toggle(`is-open`)??!1;t.setAttribute(`aria-expanded`,String(n))});</script><header class="masthead"><div class="masthead-overlay"></div><div class="container"><div class="masthead-content post-heading"><h1>Portable CI/CD with Dagger</h1><h2 class="subheading">CI/CD Pipelines with Dagger, containerised pipelines</h2><div class="meta">Published on Tuesday, June 4, 2024</div><div class="tags"><a class="badge" href="/tags/docker">Docker</a><a class="badge" href="/tags/cicd">CICD</a><a class="badge" href="/tags/dagger">Dagger</a><a class="badge" href="/tags/github-actions">Github Actions</a><a class="badge" href="/tags/gitlab-ci">Gitlab CI</a></div></div></div></header><main class="container"><article class="prose"><h1 id="dagger-cicd-a-net-cli-tool-use-case">Dagger CI/CD: A .NET CLI tool use-case</h1>
+<h2 id="part-1-understanding-heroes-decode">Part 1: Understanding Heroes-Decode</h2>
+<p>Heroes-Decode stands as a powerful .NET CLI Tool meticulously crafted to parse .StormReplay files. Developed and maintained by HeroestoolChest, spearheaded by Kevin Oliva, this tool offers an indispensable utility for processing .StormReplay files.</p>
+<p>Explore Heroes-Decode on GitHub: <a href="https://github.com/HeroesToolChest/HeroesDecode">HeroesDecode</a></p>
+<h2 id="part-2-using-heroes-decode-in-a-portable-manner">Part 2: Using Heroes-Decode in a Portable Manner</h2>
+<p>In the pursuit of flexibility and portability, it’s essential to liberate our workflows from hard dependencies on .NET.</p>
+<p>Here’s what that entails:</p>
+<ul>
+<li><strong>No .NET on Local Machine:</strong> Striving to maintain a lean setup devoid of any .NET installations.</li>
+<li><strong>No .NET Requirement on CICD Runners:</strong> Ensuring that CICD pipelines remain agnostic to .NET dependencies.</li>
+<li><strong>Embracing Portability:</strong> Fostering an environment where the tool can seamlessly operate in a portable manner.</li>
+<li><strong>A portable container:</strong> Unfortunately, Heroes-Decode lacks an official Docker image.</li>
+</ul>
+<h2 id="part-3-evaluating-available-options">Part 3: Evaluating Available Options</h2>
+<p>Given the circumstances, various paths present themselves:</p>
+<ul>
+<li><strong>Request Docker Image Support:</strong> Advocating for the creation of an official Docker image.</li>
+<li><strong>Self-Sufficiency:</strong> Leveraging personal expertise to create and utilize a custom Docker image.</li>
+<li><strong>Forking and Cloning the Repository:</strong> Resorting to a DIY approach by forking the repository, constructing a Docker image, and publishing it to Docker Hub.</li>
+<li><strong>Containerization:</strong> Exploring alternative methods to containerize the application <strong><em>without relying on a Dockerfile</em></strong>.</li>
+</ul>
+<h2 id="part-4-introducing-dagger-cicd">Part 4: Introducing Dagger CI/CD</h2>
+<ul>
+<li><strong>Avoiding Dockerfiles:</strong> Dagger CI/CD eliminates the need for Dockerfiles, offering a seamless containerization experience.</li>
+<li><strong>Creating an Independent Pipeline:</strong> Run it on any CI/CD platform, be it GitHub Actions, GitLab CI, locally, or any other CI/CD platform.</li>
+<li><strong>Leveraging built-in Dagger features:</strong> Utilizing Dagger’s built-in functions to streamline the process of containerizing Heroes-Decode.</li>
+<li><strong>Client/Host and Engine communciation:</strong> Dagger’s client/host communication ensures that the pipeline remains efficient and effective.</li>
+</ul>
+<p>The Heroes-Decode dagger module, published on the <a href="https://daggerverse.dev/mod/github.com/pjmagee/dagger-heroes-decode@c8b57e0edd4176393468e1dbcf5871ca6bc84b04">Daggerverse</a>.</p>
+<p>With Dagger CI/CD, the process of containerizing Heroes-Decode becomes a breeze, offering a seamless and efficient experience.</p>
+<h2 id="part-5-dagger-breakdown">Part 5: Dagger breakdown</h2>
+<p>What is it composed of?</p>
+<ul>
+<li><strong>Dagger CLI:</strong> A CLI tool that communicates with the Dagger Engine (a containerized service that runs on Containerd/Docker).</li>
+<li><strong>Dagger Engine:</strong> A containerized service that executes the Dagger CLI commands.</li>
+<li><strong>Dagger Modules:</strong> Reusable modules that encapsulate the logic. These modules can be published on the Daggerverse.</li>
+<li><strong>The Dagger API:</strong> GraphQL API that allows developers to interact with the Dagger Engine.</li>
+<li><strong>Dagger SDK:</strong> A language SDK used to communicate to the Dagger Engine via the GraphQL API, which allows developers to create unique, portable CI/CD Pipelines in a supported language (Go, Python, TypesScript).</li>
+<li><strong>Daggerverse:</strong> A repository of Dagger modules that can be utilized to streamline the CI/CD process.</li>
+</ul>
+<h2 id="part-6-breaking-down-the-heroes-decode-dagger-module">Part 6: Breaking down the Heroes-Decode Dagger Module</h2>
+<p>This code is a Dagger module for the Heroes Decode tool by HeroesToolChest, which decodes Heroes of the Storm replay files. It’s written in Go and uses the Dagger SDK to define a containerized environment for running the Heroes Decode tool. Here’s a breakdown of the code:
+Package and Imports: The code starts by defining the package name and importing necessary packages. The context package is a standard Go package for managing context, while the dagger package is specific to the Dagger SDK.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#F97583">package</span><span style="color:#B392F0"> main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#9ECBFF">	"</span><span style="color:#B392F0">context</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">	"</span><span style="color:#B392F0">dagger/dagger-heroes-decode/internal/dagger</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">	"</span><span style="color:#B392F0">fmt</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span></code></pre>
+<p>DaggerHeroesDecode Struct: This struct is the main component of the Dagger module. It doesn’t have any fields, as its purpose is to provide methods for running the Heroes Decode tool.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#F97583">type</span><span style="color:#B392F0"> DaggerHeroesDecode</span><span style="color:#F97583"> struct</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Decode Method: This method is where the main logic of the module resides. It takes a context, a file, and an array of additional arguments. It returns a Container object and an error.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#F97583">func</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">m </span><span style="color:#F97583">*</span><span style="color:#B392F0">DaggerHeroesDecode</span><span style="color:#E1E4E8">) </span><span style="color:#B392F0">Decode</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#FFAB70">	ctx</span><span style="color:#B392F0"> context</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">Context</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#6A737D">	// +optional</span></span>
+<span class="line"><span style="color:#6A737D">	// The replay file to decode</span></span>
+<span class="line"><span style="color:#FFAB70">	file</span><span style="color:#F97583"> *</span><span style="color:#B392F0">dagger</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">File</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#6A737D">	// +optional</span></span>
+<span class="line"><span style="color:#6A737D">	// Additional arguments to pass to the decoder</span></span>
+<span class="line"><span style="color:#FFAB70">	args</span><span style="color:#E1E4E8"> []</span><span style="color:#F97583">string</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">) (</span><span style="color:#F97583">*</span><span style="color:#B392F0">Container</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">error</span><span style="color:#E1E4E8">) {</span></span></code></pre>
+<p>Repository and Directory Setup: The method starts by defining the Git repository of the Heroes Decode tool and the directory where the tool’s code resides. It also specifies the version of the tool to use.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#E1E4E8">repo </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> dag.</span><span style="color:#B392F0">Git</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"https://github.com/HeroesToolChest/HeroesDecode.git"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">dir </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> repo.</span><span style="color:#B392F0">Tag</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"v1.4.0"</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">Tree</span><span style="color:#E1E4E8">()</span></span></code></pre>
+<p>Container Setup: Two containers are defined: one for building the Heroes Decode tool and one for running it. The build container uses the .NET SDK, while the app container uses the .NET runtime. The build container compiles the Heroes Decode tool, and the app container runs the compiled tool.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#E1E4E8">build </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> dag.</span><span style="color:#B392F0">Container</span><span style="color:#E1E4E8">().</span></span>
+<span class="line"><span style="color:#B392F0">		From</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"mcr.microsoft.com/dotnet/sdk:8.0"</span><span style="color:#E1E4E8">).</span></span>
+<span class="line"><span style="color:#B392F0">		WithWorkdir</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/app"</span><span style="color:#E1E4E8">).</span></span>
+<span class="line"><span style="color:#B392F0">		WithDirectory</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/app"</span><span style="color:#E1E4E8">, dir.</span><span style="color:#B392F0">Directory</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"HeroesDecode"</span><span style="color:#E1E4E8">)).</span></span>
+<span class="line"><span style="color:#B392F0">		WithExec</span><span style="color:#E1E4E8">([]</span><span style="color:#F97583">string</span><span style="color:#E1E4E8">{</span><span style="color:#9ECBFF">"dotnet"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"publish"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"-c"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"Release"</span><span style="color:#E1E4E8">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">app </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> dag.</span><span style="color:#B392F0">Container</span><span style="color:#E1E4E8">().</span></span>
+<span class="line"><span style="color:#B392F0">		From</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"mcr.microsoft.com/dotnet/runtime:8.0"</span><span style="color:#E1E4E8">).</span></span>
+<span class="line"><span style="color:#B392F0">		WithWorkdir</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/app"</span><span style="color:#E1E4E8">).</span></span>
+<span class="line"><span style="color:#B392F0">		WithDirectory</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/app"</span><span style="color:#E1E4E8">, build.</span><span style="color:#B392F0">Directory</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/app/bin/Release/net8.0/publish"</span><span style="color:#E1E4E8">))</span></span></code></pre>
+<p>Command Setup: The command to run the Heroes Decode tool is defined. If a file is provided, it’s added to the command. If additional arguments are provided, they’re also added to the command.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#E1E4E8">cmd </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> []</span><span style="color:#F97583">string</span><span style="color:#E1E4E8">{</span><span style="color:#9ECBFF">"./HeroesDecode"</span><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> file </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> nil</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">	replay </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> []</span><span style="color:#F97583">string</span><span style="color:#E1E4E8">{</span><span style="color:#9ECBFF">"--replay-path"</span><span style="color:#E1E4E8">, replayPath}</span></span>
+<span class="line"><span style="color:#E1E4E8">	app.</span><span style="color:#B392F0">WithFile</span><span style="color:#E1E4E8">(replayPath, file)</span></span>
+<span class="line"><span style="color:#E1E4E8">	cmd </span><span style="color:#F97583">=</span><span style="color:#B392F0"> append</span><span style="color:#E1E4E8">(cmd, replay</span><span style="color:#F97583">...</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> args </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> nil</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">	cmd </span><span style="color:#F97583">=</span><span style="color:#B392F0"> append</span><span style="color:#E1E4E8">(cmd, args</span><span style="color:#F97583">...</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Container Execution: Finally, the app container is set to execute the command and sync with the context.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#F97583">return</span><span style="color:#E1E4E8"> app.</span></span>
+<span class="line"><span style="color:#B392F0">		WithExec</span><span style="color:#E1E4E8">(cmd).</span></span>
+<span class="line"><span style="color:#B392F0">		Sync</span><span style="color:#E1E4E8">(ctx)</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="part-7-using-the-dagger-module">Part 7: Using the Dagger module</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">dagger</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> github.com/pjmagee/dagger-heroes-decode@v1.0.0</span><span style="color:#9ECBFF"> call</span><span style="color:#9ECBFF"> decode</span><span style="color:#79B8FF"> -h</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cmd"><code><span class="line"><span style="color:#E1E4E8">USAGE</span></span>
+<span class="line"><span style="color:#E1E4E8">  dagger </span><span style="color:#F97583">call</span><span style="color:#E1E4E8"> decode [arguments] </span><span style="color:#F97583">&lt;</span><span style="color:#E1E4E8">function</span><span style="color:#F97583">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">FUNCTIONS</span></span>
+<span class="line"><span style="color:#E1E4E8">  as-service                    Turn the container into a Service.</span></span>
+<span class="line"><span style="color:#E1E4E8">  as-tarball                    Returns a File representing the container serialized to a tarball.</span></span>
+<span class="line"><span style="color:#E1E4E8">  build                         Initializes this container from a Dockerfile build.</span></span>
+<span class="line"><span style="color:#E1E4E8">  default-args                  Retrieves default arguments </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> future commands.</span></span>
+<span class="line"><span style="color:#E1E4E8">  directory                     Retrieves a directory </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  entrypoint                    Retrieves entrypoint to be prepended to the arguments of all commands.</span></span>
+<span class="line"><span style="color:#E1E4E8">  env-variable                  Retrieves the value of the specified environment variable.</span></span>
+<span class="line"><span style="color:#E1E4E8">  env-variables                 Retrieves the list of environment variables passed to commands.</span></span>
+<span class="line"><span style="color:#E1E4E8">  experimental-with-all-gp-us   EXPERIMENTAL API! Subject to change/removal </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> any time.</span></span>
+<span class="line"><span style="color:#E1E4E8">  experimental-with-gpu         EXPERIMENTAL API! Subject to change/removal </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> any time.</span></span>
+<span class="line"><span style="color:#E1E4E8">  export                        Writes the container as an OCI tarball to the destination file </span><span style="color:#F97583">path</span><span style="color:#E1E4E8"> on the host.</span></span>
+<span class="line"><span style="color:#E1E4E8">  exposed-ports                 Retrieves the list of exposed ports.</span></span>
+<span class="line"><span style="color:#E1E4E8">  file                          Retrieves a file </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  from                          Initializes this container from a pulled base image.</span></span>
+<span class="line"><span style="color:#E1E4E8">  image-ref                     The unique image reference which can only be retrieved immediately after the</span></span>
+<span class="line"><span style="color:#E1E4E8">                                'Container.From' </span><span style="color:#F97583">call</span><span style="color:#E1E4E8">.</span></span>
+<span class="line"><span style="color:#E1E4E8">  import                        Reads the container from an OCI tarball.</span></span>
+<span class="line"><span style="color:#F97583">  label</span><span style="color:#E1E4E8">                         Retrieves the value of the specified label.</span></span>
+<span class="line"><span style="color:#E1E4E8">  labels                        Retrieves the list of labels passed to container.</span></span>
+<span class="line"><span style="color:#E1E4E8">  mounts                        Retrieves the list of paths </span><span style="color:#F97583">where</span><span style="color:#E1E4E8"> a directory is mounted.</span></span>
+<span class="line"><span style="color:#E1E4E8">  pipeline                      Creates a named sub-pipeline.</span></span>
+<span class="line"><span style="color:#E1E4E8">  platform                      The platform this container executes and publishes as.</span></span>
+<span class="line"><span style="color:#E1E4E8">  publish                       Publishes this container as a new image to the specified address.</span></span>
+<span class="line"><span style="color:#E1E4E8">  rootfs                        Retrieves this container's root filesystem. Mounts are </span><span style="color:#F97583">not</span><span style="color:#E1E4E8"> included.</span></span>
+<span class="line"><span style="color:#E1E4E8">  stderr                        The error stream of the last executed command.</span></span>
+<span class="line"><span style="color:#E1E4E8">  stdout                        The output stream of the last executed command.</span></span>
+<span class="line"><span style="color:#E1E4E8">  sync                          Forces evaluation of the pipeline in the engine.</span></span>
+<span class="line"><span style="color:#E1E4E8">  terminal                      Return an interactive terminal </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> this container using its configured default terminal</span></span>
+<span class="line"><span style="color:#E1E4E8">                                command </span><span style="color:#F97583">if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> overridden by args (or sh as a fallback default).</span></span>
+<span class="line"><span style="color:#E1E4E8">  user                          Retrieves the user to be </span><span style="color:#F97583">set</span><span style="color:#E1E4E8"> for all commands.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-default-args             Configures default arguments </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> future commands.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-default-terminal-cmd     </span><span style="color:#F97583">Set</span><span style="color:#E1E4E8"> the default command to invoke for the container's terminal API.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-directory                Retrieves this container plus a directory written </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-entrypoint               Retrieves this container but with a different command entrypoint.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-env-variable             Retrieves this container plus the given environment variable.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-exec                     Retrieves this container after executing the specified command inside it.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-exposed-port             Expose a network port.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-file                     Retrieves this container plus the contents of the given file copied to the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-files                    Retrieves this container plus the contents of the given files copied to the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-focus                    Indicate that subsequent operations should be featured </span><span style="color:#F97583">more</span><span style="color:#E1E4E8"> prominently in the UI.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-label                    Retrieves this container plus the given label.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-mounted-cache            Retrieves this container plus a cache volume mounted </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-mounted-directory        Retrieves this container plus a directory mounted </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-mounted-file             Retrieves this container plus a file mounted </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-mounted-secret           Retrieves this container plus a secret mounted into a file </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-mounted-temp             Retrieves this container plus a temporary directory mounted </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given path. Any</span></span>
+<span class="line"><span style="color:#E1E4E8">                                writes will be ephemeral to a single withExec </span><span style="color:#F97583">call</span><span style="color:#E1E4E8">; they will </span><span style="color:#F97583">not</span><span style="color:#E1E4E8"> be persisted to</span></span>
+<span class="line"><span style="color:#E1E4E8">                                subsequent withExecs.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-new-file                 Retrieves this container plus a new file written </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-registry-auth            Retrieves this container with a registry authentication </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> a given address.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-rootfs                   Retrieves the container with the given directory mounted to /.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-secret-variable          Retrieves this container plus an env variable containing the given secret.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-service-binding          Establish a runtime dependency on a service.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-user                     Retrieves this container with a different command user.</span></span>
+<span class="line"><span style="color:#E1E4E8">  with-workdir                  Retrieves this container with a different working directory.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-default-args          Retrieves this container with unset default arguments </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> future commands.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-directory             Retrieves this container with the directory </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given </span><span style="color:#F97583">path</span><span style="color:#E1E4E8"> removed.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-entrypoint            Retrieves this container with an unset command entrypoint.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-env-variable          Retrieves this container minus the given environment variable.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-exposed-port          Unexpose a previously exposed port.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-file                  Retrieves this container with the file </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given </span><span style="color:#F97583">path</span><span style="color:#E1E4E8"> removed.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-focus                 Indicate that subsequent operations should </span><span style="color:#F97583">not</span><span style="color:#E1E4E8"> be featured </span><span style="color:#F97583">more</span><span style="color:#E1E4E8"> prominently in the UI.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-label                 Retrieves this container minus the given environment label.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-mount                 Retrieves this container after unmounting everything </span><span style="color:#F97583">at</span><span style="color:#E1E4E8"> the given path.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-registry-auth         Retrieves this container without the registry authentication of a given address.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-secret-variable       Retrieves this container minus the given environment variable containing the secret.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-unix-socket           Retrieves this container with a previously added Unix socket removed.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-user                  Retrieves this container with an unset command user.</span></span>
+<span class="line"><span style="color:#E1E4E8">  without-workdir               Retrieves this container with an unset working directory.</span></span>
+<span class="line"><span style="color:#E1E4E8">  workdir                       Retrieves the working directory </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> all commands.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">ARGUMENTS</span></span>
+<span class="line"><span style="color:#E1E4E8">      --args strings   Additional arguments to pass to the decoder</span></span>
+<span class="line"><span style="color:#E1E4E8">      --file File      The replay file to decode</span></span></code></pre>
+<p>Example usage</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">C:\Projects\pjmagee\dagger-heroes-decode</span><span style="color:#E1E4E8"> [main </span><span style="color:#9ECBFF">≡</span><span style="color:#9ECBFF"> +0</span><span style="color:#9ECBFF"> ~1</span><span style="color:#79B8FF"> -0</span><span style="color:#9ECBFF"> !</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">&gt;</span><span style="color:#9ECBFF"> dagger</span><span style="color:#9ECBFF"> call</span><span style="color:#9ECBFF"> decode</span><span style="color:#79B8FF"> --file=</span><span style="color:#9ECBFF">'C:\Users\patri\2024-06-04 17.49.26 Hanamura Temple.StormReplay'</span><span style="color:#9ECBFF"> stdout</span></span>
+<span class="line"><span style="color:#B392F0">Success</span></span>
+<span class="line"><span style="color:#B392F0"> File</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> 2024-06-04T18_41_07.762628899Z.StormReplay</span></span>
+<span class="line"><span style="color:#B392F0"> Game</span><span style="color:#9ECBFF"> Mode:</span><span style="color:#9ECBFF"> QuickMatch</span></span>
+<span class="line"><span style="color:#B392F0">       Map:</span><span style="color:#9ECBFF"> Hanamura</span><span style="color:#9ECBFF"> Temple</span><span style="color:#E1E4E8"> [Hanamura]</span></span>
+<span class="line"><span style="color:#B392F0">   Version:</span><span style="color:#79B8FF"> 2.55.5.92264</span></span>
+<span class="line"><span style="color:#B392F0">    Region:</span><span style="color:#9ECBFF"> EU</span></span>
+<span class="line"><span style="color:#B392F0"> Game</span><span style="color:#9ECBFF"> Time:</span><span style="color:#9ECBFF"> 00:16:48</span></span>
+<span class="line"><span style="color:#B392F0">     Lobby:</span><span style="color:#9ECBFF"> Standard</span></span>
+<span class="line"><span style="color:#B392F0">Ready</span><span style="color:#9ECBFF"> Mode:</span><span style="color:#9ECBFF"> FCFS</span></span>
+<span class="line"><span style="color:#B392F0">First</span><span style="color:#9ECBFF"> Drft:</span><span style="color:#9ECBFF"> CoinToss</span></span>
+<span class="line"><span style="color:#B392F0">  Ban</span><span style="color:#9ECBFF"> Mode:</span><span style="color:#9ECBFF"> NotUsingBans</span></span>
+<span class="line"><span style="color:#B392F0">   Privacy:</span><span style="color:#9ECBFF"> Normal</span></span>
+<span class="line"><span style="color:#F97583">~</span><span style="color:#E1E4E8">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span class="line"><span style="color:#B392F0">Team</span><span style="color:#9ECBFF"> Blue</span><span style="color:#E1E4E8"> (Winner)</span></span>
+<span class="line"><span style="color:#F97583">~</span><span style="color:#E1E4E8">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span class="line"><span style="color:#E1E4E8">[-]   Player: Heartyfellow#</span></span>
+<span class="line"><span style="color:#B392F0">Player</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 1383</span></span>
+<span class="line"><span style="color:#B392F0"> Player</span><span style="color:#9ECBFF"> Toon:</span><span style="color:#9ECBFF"> 2-Hero-1-7405397</span></span>
+<span class="line"><span style="color:#B392F0">   Hero</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> Xul</span><span style="color:#E1E4E8"> [HeroNecromancer]</span></span>
+<span class="line"><span style="color:#B392F0">  Hero</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 25</span></span>
+<span class="line"><span style="color:#B392F0">       Award:</span><span style="color:#9ECBFF"> MostRoots</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[-]   Player: Jamal#2101</span></span>
+<span class="line"><span style="color:#B392F0">Player</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 1284</span></span>
+<span class="line"><span style="color:#B392F0"> Player</span><span style="color:#9ECBFF"> Toon:</span><span style="color:#9ECBFF"> 2-Hero-1-1870498</span></span>
+<span class="line"><span style="color:#B392F0">   Hero</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> Samuro</span><span style="color:#E1E4E8"> [HeroSamuro]</span></span>
+<span class="line"><span style="color:#B392F0">  Hero</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 6</span></span>
+<span class="line"><span style="color:#B392F0">       Award:</span><span style="color:#9ECBFF"> MostMercCampsCaptured</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[-]   Player: Winer#</span></span>
+<span class="line"><span style="color:#B392F0">Player</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 436</span></span>
+<span class="line"><span style="color:#B392F0"> Player</span><span style="color:#9ECBFF"> Toon:</span><span style="color:#9ECBFF"> 2-Hero-1-7066747</span></span>
+<span class="line"><span style="color:#B392F0">   Hero</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> Sgt.</span><span style="color:#9ECBFF"> Hammer</span><span style="color:#E1E4E8"> [HeroSgtHammer]</span></span>
+<span class="line"><span style="color:#B392F0">  Hero</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 75</span></span>
+<span class="line"><span style="color:#B392F0">       Award:</span><span style="color:#9ECBFF"> MostHeroDamageDone</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[-]   Player: pikkis23#</span></span>
+<span class="line"><span style="color:#B392F0">Player</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 1260</span></span>
+<span class="line"><span style="color:#B392F0"> Player</span><span style="color:#9ECBFF"> Toon:</span><span style="color:#9ECBFF"> 2-Hero-1-13136396</span></span>
+<span class="line"><span style="color:#B392F0">   Hero</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> Junkrat</span><span style="color:#E1E4E8"> [HeroJunkrat]</span></span>
+<span class="line"><span style="color:#B392F0">  Hero</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 75</span></span>
+<span class="line"><span style="color:#B392F0">       Award:</span><span style="color:#9ECBFF"> MVP</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[-]   Player: Dota2Refugee#</span></span>
+<span class="line"><span style="color:#B392F0">Player</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 266</span></span>
+<span class="line"><span style="color:#B392F0"> Player</span><span style="color:#9ECBFF"> Toon:</span><span style="color:#9ECBFF"> 2-Hero-1-13944224</span></span>
+<span class="line"><span style="color:#B392F0">   Hero</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> Malfurion</span><span style="color:#E1E4E8"> [HeroMalfurion]</span></span>
+<span class="line"><span style="color:#B392F0">  Hero</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 25</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">~</span><span style="color:#E1E4E8">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span class="line"><span style="color:#B392F0">Team</span><span style="color:#9ECBFF"> Red</span></span>
+<span class="line"><span style="color:#F97583">~</span><span style="color:#E1E4E8">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span class="line"><span style="color:#E1E4E8">[5]   Player: DukeFleed#</span></span>
+<span class="line"><span style="color:#B392F0">Player</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 779</span></span>
+<span class="line"><span style="color:#B392F0"> Player</span><span style="color:#9ECBFF"> Toon:</span><span style="color:#9ECBFF"> 2-Hero-1-1949829</span></span>
+<span class="line"><span style="color:#B392F0">   Hero</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> Alarak</span><span style="color:#E1E4E8"> [HeroAlarak]</span></span>
+<span class="line"><span style="color:#B392F0">  Hero</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 100</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[5]   Player: skitzo#</span></span>
+<span class="line"><span style="color:#B392F0">Player</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 200</span></span>
+<span class="line"><span style="color:#B392F0"> Player</span><span style="color:#9ECBFF"> Toon:</span><span style="color:#9ECBFF"> 2-Hero-1-13583013</span></span>
+<span class="line"><span style="color:#B392F0">   Hero</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> Rehgar</span><span style="color:#E1E4E8"> [HeroRehgar]</span></span>
+<span class="line"><span style="color:#B392F0">  Hero</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 20</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[6]   Player: Quant#</span></span>
+<span class="line"><span style="color:#B392F0">Player</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 3608</span></span>
+<span class="line"><span style="color:#B392F0"> Player</span><span style="color:#9ECBFF"> Toon:</span><span style="color:#9ECBFF"> 2-Hero-1-2214388</span></span>
+<span class="line"><span style="color:#B392F0">   Hero</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> Abathur</span><span style="color:#E1E4E8"> [HeroAbathur]</span></span>
+<span class="line"><span style="color:#B392F0">  Hero</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 100</span></span>
+<span class="line"><span style="color:#B392F0">       Award:</span><span style="color:#9ECBFF"> MostSiegeDamageDone</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[6]   Player: Caipa2mic#</span></span>
+<span class="line"><span style="color:#B392F0">Player</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 1299</span></span>
+<span class="line"><span style="color:#B392F0"> Player</span><span style="color:#9ECBFF"> Toon:</span><span style="color:#9ECBFF"> 2-Hero-1-12625530</span></span>
+<span class="line"><span style="color:#B392F0">   Hero</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> Li-Ming</span><span style="color:#E1E4E8"> [HeroWizard]</span></span>
+<span class="line"><span style="color:#B392F0">  Hero</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 100</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[6]   Player: Qlark#</span></span>
+<span class="line"><span style="color:#B392F0">Player</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 707</span></span>
+<span class="line"><span style="color:#B392F0"> Player</span><span style="color:#9ECBFF"> Toon:</span><span style="color:#9ECBFF"> 2-Hero-1-13849640</span></span>
+<span class="line"><span style="color:#B392F0">   Hero</span><span style="color:#9ECBFF"> Name:</span><span style="color:#9ECBFF"> Genji</span><span style="color:#E1E4E8"> [HeroGenji]</span></span>
+<span class="line"><span style="color:#B392F0">  Hero</span><span style="color:#9ECBFF"> Level:</span><span style="color:#79B8FF"> 20</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">~</span><span style="color:#E1E4E8">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span class="line"><span style="color:#B392F0">Observers</span></span>
+<span class="line"><span style="color:#F97583">~</span><span style="color:#E1E4E8">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span class="line"><span style="color:#E1E4E8">(</span><span style="color:#B392F0">NONE</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">C:\Projects\pjmagee\dagger-heroes-decode</span><span style="color:#E1E4E8"> [main </span><span style="color:#9ECBFF">≡</span><span style="color:#9ECBFF"> +0</span><span style="color:#9ECBFF"> ~1</span><span style="color:#79B8FF"> -0</span><span style="color:#9ECBFF"> !</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">&gt;</span></span></code></pre>
+<h2 id="part-8-conclusion">Part 8: Conclusion</h2>
+<p>Dagger CI/CD offers a revolutionary approach to containerization, eliminating the need for Dockerfiles and providing a seamless experience. With the Heroes-Decode Dagger module, it’s callable by anyone with the Dagger CLI, offering a portable and efficient solution for those who do not wish to install .NET and want to run the Heroes-Decode tool in a containerized environment.</p>
+<p>The Heroes-Decode Dagger module is available on the <a href="https://daggerverse.dev/mod/github.com/pjmagee/dagger-heroes-decode@c8b57e0edd4176393468e1dbcf5871ca6bc84b04">Daggerverse</a>, enabling users to leverage the power of Dagger CI/CD for their containerization needs.</p>
+</article><div class="comments"><div id="disqus_thread"></div><script>(function(){const url = "https://blog.ghp.magaoidh.pro/posts/2024-06-04-portable-cicd-with-dagger";
+const identifier = "2024-06-04-portable-cicd-with-dagger";
+const shortname = "pjmagee-github-io";
+
+    var disqus_config = function () {
+      this.page.url = url;
+      this.page.identifier = identifier;
+    };
+    (function () {
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://" + shortname + ".disqus.com/embed.js";
+      s.setAttribute("data-timestamp", String(+new Date()));
+      (d.head || d.body).appendChild(s);
+    })();
+  })();</script><noscript>Please enable JavaScript to view the<a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></main><footer class="footer"><div class="container"><p class="disclaimer">All views expressed here are my own and do not represent my employer. Comments on posts are powered by Disqus.</p><ul class="footer-links"><li><a href="https://magaoidh.pro">Portfolio</a></li><li><a href="/feed.rss">RSS</a></li><li><a href="/feed.atom">Atom</a></li><li><a href="https://www.linkedin.com/in/patrickmageez/">LinkedIn</a></li><li><a href="https://github.com/pjmagee">GitHub</a></li><li><a href="https://x.com/PatrickMagee">X</a></li></ul><div class="generated-by">© 2026 Patrick Magee</div></div></footer><script>(function(){const ga = "UA-51533669-1";
+const path = "/posts/2024-06-04-portable-cicd-with-dagger";
+const title = "Patrick's Blog - Portable CI/CD with Dagger";
+
+          (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            (i[r] =
+              i[r] ||
+              function () {
+                (i[r].q = i[r].q || []).push(arguments);
+              }),
+              (i[r].l = 1 * new Date());
+            (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+          })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+          ga("create", ga, "auto");
+          ga("send", "pageview", { page: path, title: title });
+        })();</script></body></html><script type="module">if(document.querySelector(`.imgur-embed-pub`)){let e=document.createElement(`script`);e.async=!0,e.src=`https://s.imgur.com/min/embed.js`,e.charset=`utf-8`,document.body.appendChild(e)}</script>

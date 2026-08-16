@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Patrick's Blog</title>
+  <subtitle>Notes on software, homelabs, and building things — from Patrick Magee.</subtitle>
+  <link href="https://blog.ghp.magaoidh.pro/feed.atom" rel="self" />
+  <link href="https://blog.ghp.magaoidh.pro/" />
+  <updated>2026-08-16T00:00:00.000Z</updated>
+  <id>https://blog.ghp.magaoidh.pro/</id>
+  <author>
+    <name>Patrick Magee</name>
+  </author>
+  <entry>
+    <title>Putting the Intel NPU to Work on Unraid</title>
+    <link href="https://blog.ghp.magaoidh.pro/posts/2026-08-16-npu-stt-and-unraid-npustat" />
+    <id>https://blog.ghp.magaoidh.pro/posts/2026-08-16-npu-stt-and-unraid-npustat</id>
+    <updated>2026-08-16T00:00:00.000Z</updated>
+    <summary>Always-on Whisper for a Discord wake gate on Arrow Lake’s NPU, and a dashboard tile because Unraid’s GPU panel cannot see the device at all.</summary>
+  </entry>
+  <entry>
+    <title>OpenClaw Plugins from the Home Fleet</title>
+    <link href="https://blog.ghp.magaoidh.pro/posts/2026-08-16-openclaw-plugins-from-the-fleet" />
+    <id>https://blog.ghp.magaoidh.pro/posts/2026-08-16-openclaw-plugins-from-the-fleet</id>
+    <updated>2026-08-16T00:00:00.000Z</updated>
+    <summary>How we extracted five live Discord/homelab plugins from Unraid, published them, and why they only make sense as a system.</summary>
+  </entry>
+  <entry>
+    <title>Reflections on AI, LLMs, and Vibe Coding</title>
+    <link href="https://blog.ghp.magaoidh.pro/posts/2025-10-05-thoughts-on-ai-llms-vibecoding-copy" />
+    <id>https://blog.ghp.magaoidh.pro/posts/2025-10-05-thoughts-on-ai-llms-vibecoding-copy</id>
+    <updated>2025-10-05T00:00:00.000Z</updated>
+    <summary>My Journey and Lessons Learned</summary>
+  </entry>
+  <entry>
+    <title>Reigniting My Star Wars Data Project</title>
+    <link href="https://blog.ghp.magaoidh.pro/posts/2025-09-08-reigniting-star-wars-data-project" />
+    <id>https://blog.ghp.magaoidh.pro/posts/2025-09-08-reigniting-star-wars-data-project</id>
+    <updated>2025-09-08T00:00:00.000Z</updated>
+    <summary>Moving from brittle API scraping and data loss to a sustainable local MediaWiki mirror using dumps, Docker, and Unraid.</summary>
+  </entry>
+  <entry>
+    <title>My Codec &amp; Transcoding Journey</title>
+    <link href="https://blog.ghp.magaoidh.pro/posts/2025-09-06-unraid-plex-codec-transcoding-journey" />
+    <id>https://blog.ghp.magaoidh.pro/posts/2025-09-06-unraid-plex-codec-transcoding-journey</id>
+    <updated>2025-09-06T00:00:00.000Z</updated>
+    <summary>Building an efficient multi‑codec media workflow with Unraid, Plex, NVENC, Quick Sync, Unmanic &amp; strategic library planning</summary>
+  </entry>
+  <entry>
+    <title>My Home Server Setup</title>
+    <link href="https://blog.ghp.magaoidh.pro/posts/2025-08-23-building-an-unraid-server" />
+    <id>https://blog.ghp.magaoidh.pro/posts/2025-08-23-building-an-unraid-server</id>
+    <updated>2025-08-23T00:00:00.000Z</updated>
+    <summary>A deep dive into building a powerful home server for VMs, Docker, game servers, and local AI workflows—covering hardware choices, software, and lessons learned.</summary>
+  </entry>
+  <entry>
+    <title>Portable CI/CD with Dagger</title>
+    <link href="https://blog.ghp.magaoidh.pro/posts/2024-06-04-portable-cicd-with-dagger" />
+    <id>https://blog.ghp.magaoidh.pro/posts/2024-06-04-portable-cicd-with-dagger</id>
+    <updated>2024-06-04T00:00:00.000Z</updated>
+    <summary>CI/CD Pipelines with Dagger, containerised pipelines</summary>
+  </entry>
+  <entry>
+    <title>SWTOR and Login Automation</title>
+    <link href="https://blog.ghp.magaoidh.pro/posts/2022-12-22-swtor-login-automation" />
+    <id>https://blog.ghp.magaoidh.pro/posts/2022-12-22-swtor-login-automation</id>
+    <updated>2022-12-22T00:00:00.000Z</updated>
+    <summary>How to use 1Password CLI and Power Automate to 1 click login</summary>
+  </entry>
+  <entry>
+    <title>1Password and SSH</title>
+    <link href="https://blog.ghp.magaoidh.pro/posts/2022-04-18-1password-and-ssh" />
+    <id>https://blog.ghp.magaoidh.pro/posts/2022-04-18-1password-and-ssh</id>
+    <updated>2022-04-18T00:00:00.000Z</updated>
+    <summary>Securing your dev environment</summary>
+  </entry>
+  <entry>
+    <title>Heroes of the Storm and D3.js</title>
+    <link href="https://blog.ghp.magaoidh.pro/posts/2021-08-07-heroes-of-the-storm-d3js" />
+    <id>https://blog.ghp.magaoidh.pro/posts/2021-08-07-heroes-of-the-storm-d3js</id>
+    <updated>2021-07-08T00:00:00.000Z</updated>
+    <summary>A hierarchical edge graph</summary>
+  </entry>
+</feed>

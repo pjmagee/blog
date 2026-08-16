@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Patrick&#39;s Blog - Reflections on AI, LLMs, and Vibe Coding</title><meta name="description" content="My Journey and Lessons Learned"><meta name="author" content="Patrick Magee"><link rel="canonical" href="https://blog.ghp.magaoidh.pro/posts/2025-10-05-thoughts-on-ai-llms-vibecoding-copy"><link rel="alternate" type="application/rss+xml" title="Patrick's Blog" href="/feed.rss"><link rel="alternate" type="application/atom+xml" title="Patrick's Blog" href="/feed.atom"><meta name="application-name" content="Patrick's Blog"><meta property="og:title" content="Patrick's Blog - Reflections on AI, LLMs, and Vibe Coding"><meta property="og:type" content="website"><meta property="og:url" content="https://blog.ghp.magaoidh.pro/posts/2025-10-05-thoughts-on-ai-llms-vibecoding-copy"><meta property="og:description" content="My Journey and Lessons Learned"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>:root{--bg:#0b0f14;--surface:#121820;--border:#1e2a36;--text:#c9d1d9;--text-muted:#7a8490;--text-faint:#4a5260;--white:#ecf0f3;--accent:#58a6ff;--accent-dim:#58a6ff1a;--container:920px}*,:before,:after{box-sizing:border-box}html{scroll-behavior:smooth;color-scheme:dark;-webkit-text-size-adjust:100%}body{color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;line-height:1.6}img,iframe,video{max-width:100%}img{border:0;border-radius:8px;height:auto}a{color:var(--accent);text-decoration:none;transition:color .2s,border-color .2s,background .2s}a:hover,a:focus{color:var(--white)}p{margin:0 0 1rem}p a{text-underline-offset:2px;text-decoration:underline}h1,h2,h3,h4,h5,h6{letter-spacing:-.02em;color:var(--white);margin-top:0;font-weight:600;line-height:1.25}blockquote{border-left:2px solid var(--border);color:var(--text-muted);margin:1.5rem 0;padding-left:1rem;font-style:italic}hr{border:0;border-top:1px solid var(--border);margin:0}::selection{color:var(--white);background:#58a6ff59}.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 1.5rem}.navbar{z-index:20;border-bottom:1px solid var(--border);backdrop-filter:blur(12px);background:#0b0f14eb;position:sticky;top:0}.navbar-inner{flex-wrap:wrap;justify-content:space-between;align-items:center;min-height:64px;display:flex}.navbar-brand{color:var(--white);letter-spacing:-.02em;font-weight:600}.navbar-brand:hover,.navbar-brand:focus{color:var(--accent)}.nav-toggle{letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;border-radius:8px;padding:.45rem .75rem;font-family:inherit;font-size:.78rem;font-weight:600}.nav-menu{margin:0;padding:0 0 1rem;list-style:none;display:none}.navbar.is-open .nav-menu{flex-basis:100%;display:block}.nav-menu a{color:var(--text);padding:.55rem 0;font-size:.88rem;font-weight:500;display:block}.nav-menu a:hover,.nav-menu a:focus,.nav-menu a[aria-current=page]{color:var(--white)}.masthead{border-bottom:1px solid var(--border);padding:3.5rem 0 2.5rem;position:relative;overflow:hidden}.masthead:before{content:"";pointer-events:none;background:radial-gradient(circle,#58a6ff14 0%,#0000 70%);width:600px;height:600px;position:absolute;top:-120px;left:50%;transform:translate(-50%)}.masthead.has-image{background-position:50%;background-size:cover}.masthead-overlay{display:none}.masthead-content{position:relative}.site-heading h1,.post-heading h1{word-break:break-word;margin:0;font-size:2.1rem;font-weight:600}.site-heading .subheading,.post-heading .subheading{color:var(--text-muted);margin:.6rem 0 0;font-size:1rem;font-weight:400;line-height:1.6;display:block}.post-heading .meta{color:var(--text-muted);margin-top:1rem;font-size:.88rem}.post-heading .tags{margin-top:.9rem}.split{gap:2.5rem;padding:2.5rem 0 3rem;display:grid}.split-main,.split-side{min-width:0}.split-side h5{text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:.9rem;font-size:.78rem;font-weight:600}.right-border{border-right:0}.post-preview{border-bottom:1px solid var(--border);margin-bottom:1.75rem;padding-bottom:1.75rem}.post-preview:last-of-type{border-bottom:0}.post-preview .post-title{margin:0;font-size:1.25rem}.post-preview .post-title a{color:var(--white)}.post-preview .post-title a:hover,.post-preview .post-title a:focus{color:var(--accent)}.post-preview .post-subtitle{color:var(--text);margin:.35rem 0 .45rem;font-size:.95rem;font-weight:400}.post-preview .post-meta{color:var(--text-muted);margin:0;font-size:.82rem}.year-heading{background:var(--surface);color:var(--white);border:1px solid var(--border);border-radius:8px;margin:1.75rem 0 1rem;padding:.45rem .8rem;font-size:.9rem}.archive{padding:2.5rem 0 3rem}.badge{color:var(--text-muted);background:var(--surface);border:1px solid var(--border);border-radius:6px;margin:0 .35rem .4rem 0;padding:.3rem .7rem;font-size:.78rem;font-weight:500;line-height:1.2;display:inline-block}.badge-dark,.badge:hover,.badge:focus{color:var(--white);background:var(--accent-dim);border-color:var(--accent)}.btn{border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;border-radius:8px;align-items:center;gap:.4rem;padding:.5rem 1.1rem;font-family:inherit;font-size:.88rem;font-weight:500;text-decoration:none;display:inline-flex}.btn:hover,.btn:focus{border-color:var(--accent);background:var(--accent-dim);color:var(--white)}.btn-sm{padding:.35rem .8rem;font-size:.8rem}.pager{justify-content:space-between;gap:1rem;margin-top:1.5rem;display:flex}.pager .spacer{flex:1}.prose{padding:2.5rem 0 1rem}.prose h1,.prose h2,.prose h3{margin:2rem 0 .8rem}.prose ul,.prose ol{padding-left:1.3rem}.prose li+li{margin-top:.3rem}.prose pre{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;font-size:.85rem;overflow:auto}.prose code{font-size:.85em}.prose :not(pre)>code{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.15em .35em}.prose .gist-embed{border:1px solid var(--border);background:var(--surface);border-radius:10px;width:100%;min-height:320px}.comments{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin:1rem 0 3rem;padding:1.25rem}.footer{padding:2.5rem 0 3rem}.footer .copyright,.footer .muted,.footer .disclaimer{color:var(--text-muted);font-size:.8rem}.footer .disclaimer{color:var(--text-faint);max-width:40rem;margin:0 auto 1.25rem;font-size:.75rem;line-height:1.6}.footer-links{margin:1rem 0 0;padding:0;list-style:none}.footer-links li{margin:0 .7rem .5rem;font-size:.85rem;display:inline-block}.footer-links a{color:var(--text)}.footer-links a:hover,.footer-links a:focus{color:var(--accent)}.generated-by{border-top:1px solid var(--border);color:var(--text-muted);margin-top:1.25rem;padding-top:1.25rem;font-size:.8rem}@media (width>=768px){.site-heading h1,.post-heading h1{font-size:2.6rem}.split{grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr);align-items:start}.right-border{border-right:1px solid var(--border);padding-right:2rem}}@media (width>=800px){.nav-toggle{display:none}.nav-menu{gap:.15rem;padding:0;display:flex}.nav-menu a{border-radius:8px;padding:.4rem .75rem}.nav-menu a:hover,.nav-menu a:focus{background:var(--accent-dim);color:var(--white)}}
+</style><script type="module" src="/_astro/page.D6Rx8f8Z.js"></script></head><body><nav class="navbar" id="mainNav"><div class="container navbar-inner"><a class="navbar-brand" href="/">Patrick&#39;s Blog</a><button class="nav-toggle" type="button" aria-controls="navbarResponsive" aria-expanded="false">Menu</button><ul class="nav-menu" id="navbarResponsive"><li><a href="https://magaoidh.pro" target="_blank" rel="noopener">Portfolio</a></li><li><a href="https://www.linkedin.com/in/patrickmageez/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="/about">About</a></li><li><a href="/posts">Posts</a></li><li><a href="/tags">Tags</a></li></ul></div></nav><script type="module">var e=document.getElementById(`mainNav`),t=e?.querySelector(`.nav-toggle`);t?.addEventListener(`click`,()=>{let n=e?.classList.toggle(`is-open`)??!1;t.setAttribute(`aria-expanded`,String(n))});</script><header class="masthead"><div class="masthead-overlay"></div><div class="container"><div class="masthead-content post-heading"><h1>Reflections on AI, LLMs, and Vibe Coding</h1><h2 class="subheading">My Journey and Lessons Learned</h2><div class="meta">Published on Sunday, October 5, 2025</div><div class="tags"><a class="badge" href="/tags/ai">AI</a><a class="badge" href="/tags/engineering">Engineering</a><a class="badge" href="/tags/leadership">Leadership</a><a class="badge" href="/tags/vibe-coding">Vibe Coding</a><a class="badge" href="/tags/llms">LLMs</a></div></div></div></header><main class="container"><article class="prose"><p>This is a bit of a sporadic post, but I want to share what’s been brewing in my mind over the last couple of years about vibe coding, ChatGPT, and my perceptions and experiences. As someone who’s led engineering teams through multiple tech shifts, there’s a journey here worth unpacking.</p>
+<h3 id="the-initial-revelation">The Initial Revelation</h3>
+<p>Is it conscious? Some time goes by, and more of us learn about LLMs. It’s not conscious—at least not in any scientific sense. Even intelligent people from programming backgrounds were unsure in the early days. Non-AI experts began to use them and learn. They became a tool for anyone with a browser, later even more accessible through mobile apps.</p>
+<p>So, we have training, parameters, and inference. Most technically inclined users now grasp these basics. That’s how I’ve perceived it so far, informed by years of watching similar hype cycles in tech.</p>
+<h2 id="evolution-and-iterations">Evolution and Iterations</h2>
+<p>Back to OpenAI: we were given these products in iterations—GPT-1, 2, 3, 4, and 5 (naming confusion included). Each version improved on safety, reasoning, and context handling, though not without missteps.</p>
+<p>Early models were naive and easy to manipulate. People created “jailbreaks” that tricked them into generating harmful or nonsensical content, often by pretending to be role-playing scenarios. It wasn’t real sentience—it was weak guardrails and brittle alignment.</p>
+<p><a href="https://www.windowscentral.com/artificial-intelligence/openai-chatgpt/chatgpt-dead-grandma-scam-microsoft-windows-activation-piracy">https://www.windowscentral.com/artificial-intelligence/openai-chatgpt/chatgpt-dead-grandma-scam-microsoft-windows-activation-piracy</a></p>
+<p><a href="https://arstechnica.com/ai/2025/04/when-is-4-1-greater-than-4-5-when-its-openais-newest-model/">https://arstechnica.com/ai/2025/04/when-is-4-1-greater-than-4-5-when-its-openais-newest-model/</a></p>
+<p><a href="https://www.reddit.com/r/ChatGPT/comments/12uke8z/the_grandma_jailbreak_is-absolutely-hilarious/">https://www.reddit.com/r/ChatGPT/comments/12uke8z/the_grandma_jailbreak_is-absolutely-hilarious/</a></p>
+<p><a href="https://jailbreakai.substack.com/p/the-grandma-exploit-explained-prompt">https://jailbreakai.substack.com/p/the-grandma-exploit-explained-prompt</a></p>
+<p>Other players joined the scene—Gemini, Claude, Grok, Qwen, DeepSeek, Kimi, Perplexity, and more. Some of these models write useful code under the right conditions.</p>
+<p>From experience leading teams, I’ve seen massive variance in output quality—underscoring the need for review processes and type-safe coding practices.</p>
+<h2 id="diverging-opinions-on-ai-adoption">Diverging Opinions on AI Adoption</h2>
+<p>Some call it revolutionary; others dismiss it outright. Many fear job loss or societal decline, while others over-embrace it.</p>
+<p>In engineering teams, AI-assisted coding has normalized quickly through IDEs like Cursor and VS Code. Productivity often spikes short-term, but I’ve noticed legitimate questions about long-term skill erosion.</p>
+<p>Many engineers remain skeptical; others over-rely and produce low-quality “AI slop.” Overuse can dull problem-solving ability, though evidence so far points to potential cognitive offloading—not brain damage.</p>
+<p><a href="https://www.media.mit.edu/articles/a-i-s-effects-on-the-brain/">https://www.media.mit.edu/articles/a-i-s-effects-on-the-brain/</a></p>
+<p><a href="https://nypost.com/2025/06/19/tech/chatgpt-is-getting-smarter-but-excessive-use-could-destroy-our-brains-study-warns/">https://nypost.com/2025/06/19/tech/chatgpt-is-getting-smarter-but-excessive-use-could-destroy-our-brains-study-warns/</a></p>
+<p>Note: Studies cited in popular media (including MIT’s experiment) only show short-term brain-activity changes during AI-assisted writing, not permanent impairment. They shouldn’t be overstated as proof of “brain rot.”</p>
+<p>Using AI productively still depends entirely on intent:</p>
+<p>Do you use it critically, learning from its output?</p>
+<p>Or do you let it replace thought entirely?</p>
+<p>AI is a tool, not growth in itself. Delivering faster isn’t becoming better. But when used to explain, research, critique, or analyze code, it amplifies learning.</p>
+<p>From experience, some tasks genuinely take longer with agents—when prompts drift or frameworks mismatch—but that’s situational, not universal. Other engineers report the opposite.</p>
+<h2 id="ai-grifters-and-false-promises">AI Grifters and False Promises</h2>
+<p>The rise of “AI influencers” has produced a wave of questionable claims..</p>
+<blockquote>
+<p>I built 10 SaaS products with no code in 10 days!</p>
+</blockquote>
+<p>— zero proof social media user</p>
+<p><a href="https://www.reddit.com/r/SaaS/comments/1l5ie6w/when_did_tech_turned_into_a_low_effort_money/">https://www.reddit.com/r/SaaS/comments/1l5ie6w/when_did_tech_turned_into_a_low_effort_money/</a></p>
+<p><a href="https://artificialintelligencemadesimple.substack.com/p/ai-scams-and-influencers">https://artificialintelligencemadesimple.substack.com/p/ai-scams-and-influencers</a></p>
+<p>It’s healthy skepticism. Today, LLMs can scaffold apps, but no model can autonomously deliver fully production-ready, secure, maintainable systems with integrated payments, auth, and infra. They assist developers; they don’t replace them.</p>
+<p>Commercial frameworks like LangChain, Semantic Kernel, and tool-calling systems automate parts of this pipeline, but full “0 → deployment without human oversight” remains unreliable.</p>
+<h2 id="practical-experiences-with-vibe-coding-and-agents">Practical Experiences with Vibe Coding and Agents</h2>
+<p>That brings me to “vibe coding”</p>
+<p>When Agent modes emerged (Cursor, Copilot, Replit, etc.), they felt magical and chaotic. The next evolution after chat was essentially structured prompting inside a loop.</p>
+<p>I built a small desktop app, Streamer Alerts XPlat, using this approach. It notifies me when channels go live on YouTube, Kick, and Twitch. It’s simple, but it works.</p>
+<p>My experience: going into Agent mode without a plan produces poor results. Models often write for outdated frameworks or misuse APIs. Prompts sometimes drift; context loss and hallucinated file paths occur.</p>
+<p>Yes, prompt engineering helps, but even with clear instructions, the determinism varies. Context window limits and summarization make long sessions flaky.</p>
+<p>Modern IDEs improve context handling by filtering prompts per file type, but consistency still fluctuates. The summarization issue is real, too. I’ve seen it cut off critical details, leading to the LLMs then going down a rabbit hole of incorrect assumptions.</p>
+<h2 id="navigating-models-and-their-limitations">Navigating Models and Their Limitations</h2>
+<p>I’ve also experimented with “abliterated” uncensored models on Hugging Face. These remove safety layers, producing unrestricted but often lower-quality text.</p>
+<p><a href="https://huggingface.co/blog/mlabonne/abliteration">https://huggingface.co/blog/mlabonne/abliteration</a></p>
+<p><a href="https://www.reddit.com/r/LocalLLaMA/comments/1nq0cp9/important_why_abliterated_models_suck_here_is_a/">https://www.reddit.com/r/LocalLLaMA/comments/1nq0cp9/important_why_abliterated_models_suck_here_is_a/</a></p>
+<p>They can be interesting for research or exploring restricted topics (e.g., adult related content, horror, creative writing), but they’re rarely suitable for production or enterprise work due to bias, instability, and poor factual accuracy.</p>
+<p>My take: they feel like half-lobotomized models… freer but cognitively inconsistent.</p>
+<p>As for my SAX (Streamer Alerts XPlat) project, I’d say it was 70 % vibe-coded, 30 % manual. Directing the LLM took longer than writing the code myself, but the iterative brainstorming was valuable. That’s my anecdotal experience, others online seem to have the opposite experience. Maybe it’s a mix of luck, prompt quality, and model stability…</p>
+<p>Without AI, I’d have absorbed more framework knowledge by hand, which builds real memory. That’s personal observation, not universal truth—but it matches what I see in lesser experienced engineers who over-rely on LLMs and struggle with basic debugging or problem-solving.</p>
+<p>Balancing AI speed with cognitive retention remains the leadership challenge.</p>
+<h2 id="guidance-for-effective-agent-mode-and-vibe-coding">Guidance for Effective Agent Mode and Vibe Coding</h2>
+<p>The reason for this post is to distill lessons from practice and leadership into tangible advice.</p>
+<ol>
+<li>Don’t start by coding</li>
+</ol>
+<p>Refrain from prompting “make a page” or “hello world React app.” Start with problem definition and design. In sprints, this approach saves later rework.</p>
+<ol start="2">
+<li>Write clear notes on what problem you’re solving</li>
+</ol>
+<p>Define users, platforms, features, feasibility, and desired impact. Consider scalability, maintainability, and platform fit early.</p>
+<ol start="3">
+<li>Research frameworks and ecosystems</li>
+</ol>
+<p>Explore GitHub projects, YouTube walkthroughs, and community discussions. Evaluate security, licensing, and support—enterprise readiness matters.</p>
+<ol start="4">
+<li>Trim the fat</li>
+</ol>
+<p>Narrow down frameworks by popularity, long-term support, and active maintenance. Compare pros and cons (React vs Svelte vs Electron for cross-platform cases).</p>
+<ol start="5">
+<li>Exercise your brain before Agent mode</li>
+</ol>
+<p>Read docs deeply. Understand compatibility and current best practices. Know which tools are current, which are deprecated, and how their CLIs work. This builds institutional knowledge and makes AI output verification easier.</p>
+<p>Then, when you finally invoke the Agent:</p>
+<p>Specify framework and version.</p>
+<p>Incorporate linting, typing, and compiler checks into context.</p>
+<p>Constrain the model to today’s patterns, not 2022’s GitHub average.</p>
+<ol start="6">
+<li>Use MCP and tool calling carefully</li>
+</ol>
+<ul>
+<li><a href="https://modelcontextprotocol.io/">https://modelcontextprotocol.io/</a></li>
+<li><a href="https://www.anthropic.com/news/model-context-protocol">https://www.anthropic.com/news/model-context-protocol</a></li>
+</ul>
+<p>Model Context Protocol and tool calls improve recency and accuracy by grounding AI outputs in live data. But too many tools degrade performance. Use sparingly and log behavior to detect failures.</p>
+<h2 id="in-summary">In Summary</h2>
+<p>If you do this right, you get:</p>
+<p>Solid research before vibe coding</p>
+<p>Clear Agent instructions</p>
+<p>Prompt discipline</p>
+<p>IDEs that integrate feedback (lint, type errors) into the model context</p>
+<p>My semi-vibed apps work fine, but anyone experienced with LLM-generated software can still spot it.</p>
+<p>Common tells include repetitive phrasing, overuse of parentheses or icons, and sometimes stylistic quirks. These are tendencies, not proofs of AI authorship.</p>
+<p><a href="https://www.linkedin.com/posts/jessicalynnbrock_weve-discovered-that-an-unnatural-amount-activity-7349204451523534848-uUic">https://www.linkedin.com/posts/jessicalynnbrock_weve-discovered-that-an-unnatural-amount-activity-7349204451523534848-uUic</a></p>
+<p><a href="https://www.purplefrogsystems.com/2025/01/11-ways-to-spot-ai-generated-text/">https://www.purplefrogsystems.com/2025/01/11-ways-to-spot-ai-generated-text/</a></p>
+<p><a href="https://www.linkedin.com/pulse/how-spot-chatgpt-generated-content-why-its-hannah-maden-adams-kquie">https://www.linkedin.com/pulse/how-spot-chatgpt-generated-content-why-its-hannah-maden-adams-kquie</a></p>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+<p>In reflecting on this journey, AI tools like LLMs are transformative—but they’re no substitute for human ingenuity and leadership.</p>
+<p>As engineering leads, our task is to integrate them ethically, safeguard skills, and ensure people still learn the craft.</p>
+<p>If we strike that balance, we’ll build teams that innovate faster and think deeper—a combination that no model can replicate.</p>
+</article><div class="comments"><div id="disqus_thread"></div><script>(function(){const url = "https://blog.ghp.magaoidh.pro/posts/2025-10-05-thoughts-on-ai-llms-vibecoding-copy";
+const identifier = "2025-10-05-thoughts-on-ai-llms-vibecoding-copy";
+const shortname = "pjmagee-github-io";
+
+    var disqus_config = function () {
+      this.page.url = url;
+      this.page.identifier = identifier;
+    };
+    (function () {
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://" + shortname + ".disqus.com/embed.js";
+      s.setAttribute("data-timestamp", String(+new Date()));
+      (d.head || d.body).appendChild(s);
+    })();
+  })();</script><noscript>Please enable JavaScript to view the<a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></main><footer class="footer"><div class="container"><p class="disclaimer">All views expressed here are my own and do not represent my employer. Comments on posts are powered by Disqus.</p><ul class="footer-links"><li><a href="https://magaoidh.pro">Portfolio</a></li><li><a href="/feed.rss">RSS</a></li><li><a href="/feed.atom">Atom</a></li><li><a href="https://www.linkedin.com/in/patrickmageez/">LinkedIn</a></li><li><a href="https://github.com/pjmagee">GitHub</a></li><li><a href="https://x.com/PatrickMagee">X</a></li></ul><div class="generated-by">© 2026 Patrick Magee</div></div></footer><script>(function(){const ga = "UA-51533669-1";
+const path = "/posts/2025-10-05-thoughts-on-ai-llms-vibecoding-copy";
+const title = "Patrick's Blog - Reflections on AI, LLMs, and Vibe Coding";
+
+          (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            (i[r] =
+              i[r] ||
+              function () {
+                (i[r].q = i[r].q || []).push(arguments);
+              }),
+              (i[r].l = 1 * new Date());
+            (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+          })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+          ga("create", ga, "auto");
+          ga("send", "pageview", { page: path, title: title });
+        })();</script></body></html><script type="module">if(document.querySelector(`.imgur-embed-pub`)){let e=document.createElement(`script`);e.async=!0,e.src=`https://s.imgur.com/min/embed.js`,e.charset=`utf-8`,document.body.appendChild(e)}</script>
