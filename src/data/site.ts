@@ -6,7 +6,7 @@ export const site = {
   url: "https://blog.ghp.magaoidh.pro",
   portfolio: "https://magaoidh.pro",
   github: "pjmagee",
-  twitter: "PatrickMageez",
+  twitter: "PatrickMagee",
   stackOverflow: "users/935280/patrick-magee",
   linkedIn: "patrickmageez",
   email: "patrick.magee@outlook.com",
