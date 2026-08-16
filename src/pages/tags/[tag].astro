@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostPreview from "../../components/PostPreview.astro";
+import TagCloud from "../../components/TagCloud.astro";
+import { getPosts, postsForTag, tagsFrom } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return tagsFrom(posts).map((item) => ({
+    params: { tag: item.slug },
+    props: { label: item.tag, slug: item.slug },
+  }));
+}
+
+const { label, slug } = Astro.props;
+const posts = await getPosts();
+const tagged = postsForTag(posts, slug);
+const tags = tagsFrom(posts);
+---
+
+<BaseLayout title={label}>
+  <div class="split">
+    <section class="split-main right-border">
+      {tagged.map((post) => <PostPreview post={post} />)}
+    </section>
+    <aside class="split-side">
+      <TagCloud tags={tags} active={slug} />
+    </aside>
+  </div>
+</BaseLayout>

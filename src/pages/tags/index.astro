@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TagCloud from "../../components/TagCloud.astro";
+import { getPosts, tagsFrom } from "../../lib/content";
+
+const tags = tagsFrom(await getPosts());
+---
+
+<BaseLayout title="Tags">
+  <div class="archive">
+    <TagCloud tags={tags} />
+  </div>
+</BaseLayout>

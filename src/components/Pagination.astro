@@ -1,0 +1,27 @@
+---
+interface Props {
+  newerHref?: string;
+  olderHref?: string;
+}
+
+const { newerHref, olderHref } = Astro.props;
+---
+
+{
+  (newerHref || olderHref) && (
+    <div class="pager">
+      {newerHref ? (
+        <a class="btn" href={newerHref}>
+          ← Newer
+        </a>
+      ) : (
+        <span class="spacer" />
+      )}
+      {olderHref && (
+        <a class="btn" href={olderHref}>
+          Older →
+        </a>
+      )}
+    </div>
+  )
+}

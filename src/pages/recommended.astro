@@ -1,0 +1,14 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = await getEntry("pages", "recommended");
+if (!page) throw new Error("Missing recommended page");
+const { Content } = await render(page);
+---
+
+<BaseLayout title={page.data.title} lead={page.data.lead} description={page.data.lead}>
+  <article class="prose">
+    <Content />
+  </article>
+</BaseLayout>

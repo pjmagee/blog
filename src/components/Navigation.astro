@@ -1,0 +1,36 @@
+---
+import { site } from "../data/site";
+---
+
+<nav class="navbar" id="mainNav">
+  <div class="container navbar-inner">
+    <a class="navbar-brand" href="/">{site.title}</a>
+    <button class="nav-toggle" type="button" aria-controls="navbarResponsive" aria-expanded="false">
+      Menu
+    </button>
+    <ul class="nav-menu" id="navbarResponsive">
+      {
+        site.nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              target={"external" in item && item.external ? "_blank" : undefined}
+              rel={"external" in item && item.external ? "noopener" : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById("mainNav");
+  const toggle = nav?.querySelector<HTMLButtonElement>(".nav-toggle");
+  toggle?.addEventListener("click", () => {
+    const open = nav?.classList.toggle("is-open") ?? false;
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+</script>

@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostPreview from "../components/PostPreview.astro";
+import Pagination from "../components/Pagination.astro";
+import TagCloud from "../components/TagCloud.astro";
+import { site } from "../data/site";
+import { getPosts, paginate, tagsFrom } from "../lib/content";
+
+const posts = await getPosts();
+const tags = tagsFrom(posts);
+const page = paginate(posts, 1);
+---
+
+<BaseLayout description={site.description} lead={site.description}>
+  <div class="split">
+    <section class="split-main right-border">
+      {page.items.map((post) => <PostPreview post={post} />)}
+      <Pagination olderHref={page.olderHref} newerHref={page.newerHref} />
+    </section>
+    <aside class="split-side">
+      {
+        tags.length > 0 && (
+          <div>
+            <h5>Tags</h5>
+            <TagCloud tags={tags} limit={10} />
+            <div class="pager">
+              <span class="spacer" />
+              <a class="btn btn-sm" href="/tags">
+                All Tags →
+              </a>
+            </div>
+          </div>
+        )
+      }
+    </aside>
+  </div>
+</BaseLayout>

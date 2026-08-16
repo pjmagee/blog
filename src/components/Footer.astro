@@ -1,0 +1,41 @@
+---
+import { site } from "../data/site";
+
+interface Props {
+  canonical?: string;
+}
+
+const { canonical } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    {
+      canonical && (
+        <p class="muted">
+          Originally published at <a href={canonical}>{canonical}</a>.
+        </p>
+      )
+    }
+    <p class="disclaimer">
+      All views expressed here are my own and do not represent my employer.
+      Comments on posts are powered by Disqus.
+    </p>
+    <ul class="footer-links">
+      <li><a href={site.portfolio}>Portfolio</a></li>
+      <li><a href="/feed.rss">RSS</a></li>
+      <li><a href="/feed.atom">Atom</a></li>
+      <li>
+        <a href={`https://www.linkedin.com/in/${site.linkedIn}/`}>LinkedIn</a>
+      </li>
+      <li>
+        <a href={`https://github.com/${site.github}`}>GitHub</a>
+      </li>
+      <li>
+        <a href={`https://twitter.com/${site.twitter}`}>X</a>
+      </li>
+    </ul>
+    <div class="generated-by">© {year} {site.author}</div>
+  </div>
+</footer>

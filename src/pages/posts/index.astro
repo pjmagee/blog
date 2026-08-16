@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { formatLongDate, postHref } from "../../data/site";
+import { getPosts } from "../../lib/content";
+
+const posts = await getPosts();
+const groups = Map.groupBy(posts, (post) => post.data.published.getFullYear());
+const years = [...groups.keys()].sort((a, b) => b - a);
+---
+
+<BaseLayout title="Posts">
+  <div class="archive">
+  {
+    years.map((year) => (
+      <section>
+        <h1 class="year-heading">{year}</h1>
+        {(groups.get(year) ?? []).map((post) => (
+          <article class="post-preview">
+            <h3 class="post-title">
+              <a href={postHref(post.id)}>{post.data.title}</a>
+            </h3>
+            {post.data.lead && <div class="post-subtitle">{post.data.lead}</div>}
+            <p class="post-meta">Published on {formatLongDate(post.data.published)}</p>
+          </article>
+        ))}
+      </section>
+    ))
+  }
+  </div>
+</BaseLayout>

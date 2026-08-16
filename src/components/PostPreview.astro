@@ -1,0 +1,18 @@
+---
+import { formatLongDate, postHref } from "../data/site";
+import type { Post } from "../lib/content";
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="post-preview">
+  <h2 class="post-title">
+    <a href={postHref(post.id)}>{post.data.title}</a>
+  </h2>
+  {post.data.lead && <div class="post-subtitle">{post.data.lead}</div>}
+  <p class="post-meta">Published on {formatLongDate(post.data.published)}</p>
+</article>

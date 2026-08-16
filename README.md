@@ -1,29 +1,43 @@
-# My Static Site
+# Patrick's Blog
 
-This is my static site built with [Statiq](https://www.statiq.dev/).
+Published at [https://blog.ghp.magaoidh.pro/](https://blog.ghp.magaoidh.pro/) via GitHub Pages (`pjmagee/pjmagee.github.io`).
 
-## Features
+Static site built with [Astro](https://astro.build).
 
-- Responsive design
-- Fast loading times
-- SEO optimized
-- Easy to customize
+## Local development
 
-## Technologies Used
+```bash
+npm install
+npm run dev
+```
 
-- StatiqDev
-- HTML
-- CSS
-- JavaScript
+Preview a production build:
 
-## Contributing
+```bash
+npm run build
+npm run preview
+```
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+## Content
 
-## License
+- Posts live in `src/content/posts/`
+- About and Recommended pages live in `src/content/pages/`
+- Site metadata is in `src/data/site.ts`
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+Post front matter:
 
-## Contact
+```yaml
+---
+title: Post title
+lead: Optional subtitle
+published: 2026-01-01
+tags:
+  - Example
+---
+```
 
-If you have any questions or want to get in touch, feel free to reach out to me at [patrick.magee@outlook.com](mailto:patrick.magee@outlook.com).
+The filename (without `.md`) is the public slug, for example `2024-06-04-portable-cicd-with-dagger.md` → `/posts/2024-06-04-portable-cicd-with-dagger`.
+
+## Deploy
+
+Pushes to `main` build the site and publish the `dist/` output to the `gh-pages` branch. GitHub Pages serves that branch at `blog.ghp.magaoidh.pro`.

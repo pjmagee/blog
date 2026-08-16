@@ -1,0 +1,25 @@
+---
+import { tagHref } from "../data/site";
+
+interface Props {
+  tags: { slug: string; tag: string; count: number }[];
+  active?: string;
+  limit?: number;
+}
+
+const { tags, active, limit } = Astro.props;
+const visible = typeof limit === "number" ? tags.slice(0, limit) : tags;
+---
+
+<div>
+  {
+    visible.map((item) => (
+      <a
+        class:list={["badge", active === item.slug && "badge-dark"]}
+        href={tagHref(item.tag)}
+      >
+        {item.tag} ({item.count})
+      </a>
+    ))
+  }
+</div>

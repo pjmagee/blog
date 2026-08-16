@@ -3,3 +3,7 @@ bin
 obj
 output
 cache
+node_modules
+dist
+.astro
+.DS_Store

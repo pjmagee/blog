@@ -1,0 +1,45 @@
+---
+import { formatLongDate, tagHref } from "../data/site";
+
+interface Props {
+  title: string;
+  lead?: string;
+  image?: string;
+  published?: Date;
+  tags?: string[];
+  isPost?: boolean;
+  pageIndex?: number;
+}
+
+const { title, lead, image, published, tags = [], isPost = false, pageIndex } = Astro.props;
+const style = image ? `background-image: url("${image}")` : undefined;
+---
+
+<header class:list={["masthead", image && "has-image"]} style={style}>
+  <div class="masthead-overlay"></div>
+  <div class="container">
+    <div class:list={["masthead-content", isPost ? "post-heading" : "site-heading"]}>
+      <h1>
+        {title}
+        {pageIndex && pageIndex > 1 && <small> (Page {pageIndex})</small>}
+      </h1>
+      {lead && <h2 class="subheading">{lead}</h2>}
+      {
+        isPost && published && (
+          <div class="meta">Published on {formatLongDate(published)}</div>
+        )
+      }
+      {
+        isPost && tags.length > 0 && (
+          <div class="tags">
+            {tags.map((tag) => (
+              <a class="badge" href={tagHref(tag)}>
+                {tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</header>

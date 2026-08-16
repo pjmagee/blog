@@ -1,0 +1,45 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Comments from "../../components/Comments.astro";
+import { site, postHref } from "../../data/site";
+import { getPosts } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const url = new URL(postHref(post.id), site.url).toString();
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.lead ?? site.description}
+  lead={post.data.lead}
+  published={post.data.published}
+  tags={post.data.tags}
+  image={post.data.image}
+  canonical={post.data.canonical}
+  isPost
+>
+  <article class="prose">
+    <Content />
+  </article>
+  <Comments url={url} identifier={post.id} />
+</BaseLayout>
+
+<script>
+  if (document.querySelector(".imgur-embed-pub")) {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://s.imgur.com/min/embed.js";
+    script.charset = "utf-8";
+    document.body.appendChild(script);
+  }
+</script>
